@@ -1,3 +1,23 @@
 <resources>
     <string name="app_name">Tickle</string>
+
+    <string name="coming_soon">커밍순</string>
+    <string name="category">카테고리</string>
+    <string name="best_coupon">베스트쿠폰</string>
+    <string name="today_coupon">오늘의쿠폰</string>
+
+    <string name="myCoupon">내쿠폰</string>
+    <string name="changeCondition">교환현황</string>
+    <string name="all">전체</string>
+    <string name="close">내 주변</string>
+    <string name="restaurant">음식점</string>
+    <string name="beauty">뷰티</string>
+    <string name="shopping">생활/쇼핑</string>
+    <string name="leisure">레저</string>
+    <string name="book">도서</string>
+
+    <string name="sortCoupon">쿠폰정렬</string>
+    <string name="suggestSort">제안순</string>
+    <string name="changeSort">교환순</string>
+    <string name="useSort">사용량순</string>
 </resources>

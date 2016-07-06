@@ -1,44 +1,33 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.design.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/coordinatorLayout"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    tools:context=".view.main.MainActivity">
+
+    <android.support.design.widget.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="176dp"
+        android:elevation="0dp"
+        android:orientation="vertical">
+        <android.support.design.widget.CollapsingToolbarLayout
+            android:layout_width="match_parent"
+            app:layout_scrollFlags="scroll|enterAlwaysCollapsed"
+
+            android:layout_height="match_parent">
+                <include layout="@layout/element_main_header_button"
+                    app:layout_behavior="co.tickle.view.behavior.HeaderBehavior"/>
+        </android.support.design.widget.CollapsingToolbarLayout>
+
+    </android.support.design.widget.AppBarLayout>
 
     <co.tickle.utils.SwipeDisableViewPager
+        android:id="@+id/mainViewPager"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         app:layout_behavior="@string/appbar_scrolling_view_behavior" />
 
-    <android.support.design.widget.AppBarLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:minHeight="56dp"
-            app:layout_scrollFlags="scroll|enterAlwaysCollapsed"
-            android:layout_height="176dp">
-
-            <include layout="@layout/element_main_header_button" />
-        </LinearLayout>
-        <android.support.design.widget.TabLayout
-            android:background="@color/black"
-            android:id="@+id/main_header_tabs"
-            app:tabMode="fixed"
-            android:paddingLeft="21dp"
-            app:tabIndicatorHeight="0dp"
-            android:layout_width="match_parent"
-            android:layout_height="46dp" />
-        <android.support.design.widget.TabLayout
-            android:background="@color/white"
-            app:tabTextColor="@color/gray"
-            app:tabPaddingStart="19dp"
-            app:tabPaddingEnd="19dp"
-            app:tabSelectedTextColor="@color/themePink"
-            app:tabIndicatorHeight="1dp"
-            android:id="@+id/main_body_tabs"
-            android:layout_width="match_parent"
-            android:layout_height="46dp" />
-    </android.support.design.widget.AppBarLayout>
 </android.support.design.widget.CoordinatorLayout>

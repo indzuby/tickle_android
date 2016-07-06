@@ -7,10 +7,15 @@ android {
     defaultConfig {
         applicationId "co.tickle"
         minSdkVersion 16
-        targetSdkVersion 23
+        targetSdkVersion 20
         versionCode 1
         versionName "1.0"
     }
+    dexOptions {
+        incremental true
+        javaMaxHeapSize "4g"
+    }
+
     buildTypes {
         release {
             minifyEnabled false
@@ -22,7 +27,7 @@ android {
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
     testCompile 'junit:junit:4.12'
-    compile 'com.android.support:appcompat-v7:23.4.0'
+    compile 'com.android.support:appcompat-v7:23.1.1'
     compile 'com.android.support:design:23.1.1'
     compile 'com.github.bumptech.glide:glide:3.6.1'
     compile 'com.j256.ormlite:ormlite-android:4.48'

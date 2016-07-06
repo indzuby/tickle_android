@@ -1,12 +1,3 @@
 <?xml version="1.0" encoding="utf-8"?>
-<items version="2" >
+<items version="2" />
 
-    <item
-        jar="/Users/user1/Documents/dev/Tickle/app/build/intermediates/incremental-classes/debug/instant-run-bootstrap.jar"
-        jumboMode="true"
-        revision="23.0.2"
-        sha1="314d58b2ba7cce81651532aea8baa04bd042f69e">
-        <dex dex="/Users/user1/Documents/dev/Tickle/app/build/intermediates/transforms/dex/debug/folders/1000/10/instant-run-bootstrap_2dfef0c22215b3d7ffe6f7dc86345acb993873ea/classes.dex" />
-    </item>
-
-</items>

@@ -1,32 +1,28 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="horizontal" android:layout_width="wrap_content"
-    android:background="@color/black"
+    android:orientation="horizontal" android:layout_width="match_parent"
+    android:background="@color/blackBackground"
+    android:paddingRight="8dp"
+    android:gravity="center"
+    android:paddingLeft="8dp"
     android:layout_height="46dp">
     <FrameLayout
-        android:id="@+id/tab_button"
+        android:id="@+id/tabButton"
         android:layout_width="wrap_content"
-        android:paddingRight="21dp"
         android:layout_height="match_parent">
     <TextView
-        android:id="@+id/tab_menu"
+        android:id="@+id/tabMenu"
         android:textSize="15sp"
-        android:textColor="@color/white"
+        android:textColor="@drawable/selector_main_menu_text"
         android:layout_gravity="center"
-        android:text="커밍순"
+        android:text="오늘의쿠폰"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content" />
         <ImageView
-            android:id="@+id/tab_indicator"
+            android:id="@+id/tabIndicator"
             android:layout_width="wrap_content"
             android:layout_gravity="center_horizontal|bottom"
             android:src="@mipmap/icon_submenu_select"
             android:layout_height="wrap_content" />
     </FrameLayout>
-    <ImageView
-        android:id="@+id/setting"
-        android:visibility="gone"
-        android:layout_width="wrap_content"
-        android:src="@mipmap/icon_setting"
-        android:layout_height="match_parent" />
 </RelativeLayout>

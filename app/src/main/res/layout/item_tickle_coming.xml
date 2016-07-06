@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="horizontal" android:layout_width="match_parent"
+    android:background="@drawable/tickle_border"
+    android:layout_height="100dp">
+    <include layout="@layout/item_tickle_common"/>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:paddingLeft="6dp"
+        android:paddingRight="6dp"
+        android:gravity="center_horizontal"
+        android:orientation="vertical"
+        android:layout_height="match_parent">
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:layout_weight="1"
+            android:layout_height="0dp">
+            <TextView
+                android:textColor="@color/themePink"
+                android:textSize="11sp"
+                android:layout_width="wrap_content"
+                android:text="3,000,000"
+                android:layout_height="wrap_content" />
+            <TextView
+                android:textColor="@color/gray99"
+                android:textSize="10sp"
+                android:layout_width="wrap_content"
+                android:text="남음"
+                android:layout_height="wrap_content" />
+        </LinearLayout>
+        <View
+            android:layout_width="match_parent"
+            android:background="@color/grayBackground"
+            android:layout_height="1dp"/>
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:layout_weight="1"
+            android:layout_height="0dp">
+            <TextView
+                android:textColor="@color/themeBlue"
+                android:textSize="11sp"
+                android:layout_width="wrap_content"
+                android:text="23:59:01"
+                android:layout_height="wrap_content" />
+            <TextView
+                android:textColor="@color/gray99"
+                android:textSize="10sp"
+                android:layout_width="wrap_content"
+                android:text="남음"
+                android:layout_height="wrap_content" />
+        </LinearLayout>
+    </LinearLayout>
+</LinearLayout>
