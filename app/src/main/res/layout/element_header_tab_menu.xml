@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="horizontal" android:layout_width="wrap_content"
+    android:background="@color/black"
+    android:layout_height="46dp">
+    <FrameLayout
+        android:id="@+id/tab_button"
+        android:layout_width="wrap_content"
+        android:paddingRight="21dp"
+        android:layout_height="match_parent">
+    <TextView
+        android:id="@+id/tab_menu"
+        android:textSize="15sp"
+        android:textColor="@color/white"
+        android:layout_gravity="center"
+        android:text="커밍순"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+        <ImageView
+            android:id="@+id/tab_indicator"
+            android:layout_width="wrap_content"
+            android:layout_gravity="center_horizontal|bottom"
+            android:src="@mipmap/icon_submenu_select"
+            android:layout_height="wrap_content" />
+    </FrameLayout>
+    <ImageView
+        android:id="@+id/setting"
+        android:visibility="gone"
+        android:layout_width="wrap_content"
+        android:src="@mipmap/icon_setting"
+        android:layout_height="match_parent" />
+</RelativeLayout>
