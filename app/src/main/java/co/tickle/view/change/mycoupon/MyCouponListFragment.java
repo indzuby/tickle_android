@@ -15,11 +15,14 @@ import co.tickle.view.adapter.InterestTickleAdapter;
 import co.tickle.view.adapter.MyCollectTickleAdapter;
 import co.tickle.view.adapter.TickleAdapter;
 import co.tickle.view.common.BaseFragment;
+import co.tickle.view.common.BaseRecyclerAdapter;
 
 /**
  * Created by zuby on 2016-07-06.
  */
 public class MyCouponListFragment extends BaseFragment {
+    MyCollectTickleAdapter adapter;
+    GridLayoutManager glm;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         mView =  inflater.inflate(R.layout.fragment_mycoupon,container,false);
@@ -32,10 +35,20 @@ public class MyCouponListFragment extends BaseFragment {
         LinearLayoutManager llm = new LinearLayoutManager(getContext());
         llm.setOrientation(LinearLayoutManager.HORIZONTAL);
         listView.setLayoutManager(llm);
- 
-        RecyclerView gridView = (RecyclerView) mView.findViewById(R.id.myCollectGridView);
-        gridView.setAdapter(new MyCollectTickleAdapter(getContext()));
-        GridLayoutManager glm = new GridLayoutManager(getContext(),3);
+
+        final RecyclerView gridView = (RecyclerView) mView.findViewById(R.id.myCollectGrid);
+        glm = new GridLayoutManager(getContext(),3);
+        glm.setSpanSizeLookup(new GridLayoutManager.SpanSizeLookup() {
+            @Override
+            public int getSpanSize(int position) {
+                if(position==0)
+                    return 3;
+                return 1;
+            }
+        });
         gridView.setLayoutManager(glm);
+        gridView.setHasFixedSize(true);
+        adapter = new MyCollectTickleAdapter(getContext());
+        gridView.setAdapter(adapter);
     }
 }

@@ -22,9 +22,15 @@
             android:layout_height="match_parent" />
     </RelativeLayout>
 
-    <co.tickle.utils.SwipeDisableViewPager
-        android:id="@+id/collectViewPager"
+    <FrameLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+        android:id="@+id/collectViewPager"
+        android:layout_height="match_parent">
+
+    </FrameLayout>
+    <!--<co.tickle.utils.SwipeDisableViewPager-->
+        <!--android:id="@+id/collectViewPager"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="match_parent" />-->
 
 </LinearLayout>

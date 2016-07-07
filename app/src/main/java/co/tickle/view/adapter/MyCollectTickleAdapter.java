@@ -33,6 +33,11 @@ public class MyCollectTickleAdapter extends BaseRecyclerAdapter {
     }
 
     @Override
+    public int getItemViewType(int position) {
+        return super.getItemViewType(position);
+    }
+
+    @Override
     public int getItemCount() {
         return 15;
     }

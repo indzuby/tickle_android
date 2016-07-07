@@ -45,7 +45,6 @@ public class CategoryFragment extends BaseFragment {
         tabLayout = (TabLayout) mView.findViewById(R.id.tab);
         viewPager = (ViewPager) mView.findViewById(R.id.viewPager);
         tabAdapter =new MainItemTabAdapter(getFragmentManager(),getContext(),sampleList());
-
         viewPager.setAdapter(tabAdapter);
         tabLayout.setupWithViewPager(viewPager);
         for(int i = 0; i<tabLayout.getTabCount();i++) {

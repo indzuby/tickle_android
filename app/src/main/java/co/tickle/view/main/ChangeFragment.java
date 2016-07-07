@@ -1,5 +1,6 @@
 package co.tickle.view.main;
 
+import android.content.Context;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.design.widget.TabLayout;
@@ -21,6 +22,21 @@ public class ChangeFragment extends BaseFragment {
     TabLayout tabLayout;
     SwipeDisableViewPager viewPager;
     ChangeMenuAdapter mainAdapter;
+
+    private static ChangeFragment instance;
+
+    public static ChangeFragment getInstance() {
+        synchronized (ChangeFragment.class) {
+            if (instance == null) {
+                instance = new ChangeFragment();
+            }
+        }
+        return instance;
+    }
+
+
+
+
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {

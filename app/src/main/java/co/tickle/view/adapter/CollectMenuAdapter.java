@@ -4,6 +4,7 @@ import android.content.Context;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentStatePagerAdapter;
+import android.support.v4.app.FragmentTransaction;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.TextView;
@@ -22,22 +23,23 @@ import co.tickle.view.collect.today.TodayFragment;
 /**
  * Created by zuby on 2016-07-06.
  */
-public class CollectMenuAdapter extends FragmentStatePagerAdapter{
+public class CollectMenuAdapter /*extends FragmentStatePagerAdapter*/{
     Context mContext;
-    Map<Integer,BaseFragment> fragments;
-
+    Map<Integer, BaseFragment> fragments;
+    FragmentManager fm;
+    int nowPosition = -1;
     public CollectMenuAdapter(FragmentManager fm, Context context) {
-        super(fm);
+//        super(fm);
+        this.fm = fm;
         mContext = context;
         fragments = new HashMap<>();
     }
-
-    @Override
-    public Fragment getItem(int position) {
-        if(fragments.containsKey(position))
-            return fragments.get(position);
+//    @Override
+    public void getItem(int position) {
         BaseFragment fragment = null;
-        switch(position) {
+//        if (fragments.containsKey(position))
+//            return fragments.get(position);
+        switch (position) {
             case 0:
                 fragment = new ComingSoonFragment();
                 break;
@@ -51,12 +53,18 @@ public class CollectMenuAdapter extends FragmentStatePagerAdapter{
                 fragment = new TodayFragment();
                 break;
         }
-        fragments.put(position,fragment);
-        return fragment;
+        FragmentTransaction ft = fm.beginTransaction();
+        if(nowPosition>position)
+            ft.setCustomAnimations(R.anim.enter_from_left, R.anim.exit_to_right, R.anim.enter_from_right, R.anim.exit_to_left);
+        else if(nowPosition!=-1)
+            ft.setCustomAnimations(R.anim.enter_from_right, R.anim.exit_to_left, R.anim.enter_from_left, R.anim.exit_to_right);
+        nowPosition=position;
+        ft.replace(R.id.collectViewPager,fragment);
+        ft.commit();
     }
 
     public View getTabView(int position) {
-        View v = LayoutInflater.from(mContext).inflate(R.layout.element_header_tab_menu,null);
+        View v = LayoutInflater.from(mContext).inflate(R.layout.element_header_tab_menu, null);
         TextView name = (TextView) v.findViewById(R.id.tabMenu);
         View tabIndicator = v.findViewById(R.id.tabIndicator);
         tabIndicator.setVisibility(View.GONE);
@@ -64,7 +72,7 @@ public class CollectMenuAdapter extends FragmentStatePagerAdapter{
         return v;
     }
 
-    @Override
+//    @Override
     public int getCount() {
         return 4;
     }

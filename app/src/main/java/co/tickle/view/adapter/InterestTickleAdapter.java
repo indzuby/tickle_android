@@ -29,11 +29,6 @@ public class InterestTickleAdapter extends BaseRecyclerAdapter {
         return new ListItemViewHolder(itemView);
     }
 
-    public boolean isFooter(int position) {
-        return (position + 1 == getItemCount());
-
-    }
-
     @Override
     public void onBindViewHolder(RecyclerView.ViewHolder holder, int position) {
     }

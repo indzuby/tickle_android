@@ -15,7 +15,7 @@
         android:orientation="vertical">
         <android.support.design.widget.CollapsingToolbarLayout
             android:layout_width="match_parent"
-            app:layout_scrollFlags="scroll|enterAlwaysCollapsed"
+            app:layout_scrollFlags="scroll|snap|exitUntilCollapsed"
 
             android:layout_height="match_parent">
                 <include layout="@layout/element_main_header_button"
@@ -24,10 +24,16 @@
 
     </android.support.design.widget.AppBarLayout>
 
-    <co.tickle.utils.SwipeDisableViewPager
-        android:id="@+id/mainViewPager"
+    <FrameLayout
+        android:id="@+id/mainBody"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        app:layout_behavior="@string/appbar_scrolling_view_behavior" />
+        app:layout_behavior="@string/appbar_scrolling_view_behavior"
+        android:layout_height="match_parent"></FrameLayout>
+
+    <!--<co.tickle.utils.SwipeDisableViewPager-->
+        <!--android:id="@+id/mainViewPager"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="match_parent"-->
+        <!--app:layout_behavior="@string/appbar_scrolling_view_behavior" />-->
 
 </android.support.design.widget.CoordinatorLayout>
