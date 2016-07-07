@@ -45,7 +45,6 @@ public class ChangeFragment extends BaseFragment {
         tabLayout.setOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
             @Override
             public void onTabSelected(TabLayout.Tab tab) {
-                viewPager.setCurrentItem(tab.getPosition());
                 selectedTab(tab.getPosition());
             }
 
@@ -74,5 +73,6 @@ public class ChangeFragment extends BaseFragment {
         name.setSelected(true);
         indicator.setVisibility(View.VISIBLE);
         tab.select();
+        viewPager.setCurrentItem(position);
     }
 }

@@ -20,4 +20,8 @@
     <string name="suggestSort">제안순</string>
     <string name="changeSort">교환순</string>
     <string name="useSort">사용량순</string>
+
+    <string name="interestTickle">관심 쿠폰</string>
+
+    <string name="collectTickle">내가 모은 쿠폰</string>
 </resources>

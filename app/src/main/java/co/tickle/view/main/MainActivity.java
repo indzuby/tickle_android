@@ -1,10 +1,14 @@
 package co.tickle.view.main;
 
+import android.os.Build;
 import android.os.Bundle;
+import android.support.v4.content.ContextCompat;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.ActionBar;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
+import android.view.Window;
+import android.view.WindowManager;
 
 
 import co.tickle.R;
@@ -23,9 +27,9 @@ public class MainActivity extends BaseActivity {
 
         super.onClick(v);
         if(v.getId() == R.id.headerCollectButton) {
-            viewPager.setCurrentItem(0);
+            selectedTab(0);
         }else if(v.getId() == R.id.headerChangeButton) {
-            viewPager.setCurrentItem(1);
+            selectedTab(1);
         }
     }
 
@@ -42,29 +46,16 @@ public class MainActivity extends BaseActivity {
         viewPager = (SwipeDisableViewPager) findViewById(R.id.mainViewPager);
         mainAdapter = new MainMenuAdapter(getSupportFragmentManager(),this);
         viewPager.setAdapter(mainAdapter);
-        viewPager.setOffscreenPageLimit(2);
+        viewPager.setOffscreenPageLimit(0);
         viewPager.setPagingEnabled(false);
-        viewPager.setCurrentItem(0);
-        viewPager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
-            @Override
-            public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
-
-            }
-
-            @Override
-            public void onPageSelected(int position) {
-                selectedTab(position);
-            }
-
-            @Override
-            public void onPageScrollStateChanged(int state) {
-
-            }
-        });
+        selectedTab(0);
         findViewById(R.id.headerChangeButton).setOnClickListener(this);
         findViewById(R.id.headerCollectButton).setOnClickListener(this);
     }
     public void selectedTab(int position){
+        viewPager.setCurrentItem(position);
+        Window window = getWindow();
+        int[] res={R.color.themePink,R.color.themeBlue};
         if(position ==0 ){
             findViewById(R.id.headerCollectIcon).setAlpha(1f);
             findViewById(R.id.headerCollectText).setAlpha(1f);
@@ -77,7 +68,11 @@ public class MainActivity extends BaseActivity {
             findViewById(R.id.headerChangeIcon).setAlpha(1f);
             findViewById(R.id.headerChangeText).setAlpha(1f);
             findViewById(R.id.headerSelectOval).setSelected(true);
-
+        }
+        if (Build.VERSION.SDK_INT>=21) {
+            window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
+            window.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
+            window.setStatusBarColor(ContextCompat.getColor(this, res[position]));
         }
     }
 }

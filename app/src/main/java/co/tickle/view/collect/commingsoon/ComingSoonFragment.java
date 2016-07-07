@@ -30,7 +30,7 @@ public class ComingSoonFragment extends BaseFragment {
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        mView = inflater.inflate(R.layout.fragment_comingsoon,container,false);
+        mView = inflater.inflate(R.layout.fragment_default,container,false);
         init();
         return mView;
     }
@@ -41,8 +41,8 @@ public class ComingSoonFragment extends BaseFragment {
         return fragments;
     }
     public void init(){
-        tabLayout = (TabLayout) mView.findViewById(R.id.comingTab);
-        viewPager = (ViewPager) mView.findViewById(R.id.comingViewPager);
+        tabLayout = (TabLayout) mView.findViewById(R.id.tab);
+        viewPager = (ViewPager) mView.findViewById(R.id.viewPager);
         tabAdapter = new MainItemTabAdapter(getFragmentManager(),getContext(),sampleList());
 
         viewPager.setAdapter(tabAdapter);

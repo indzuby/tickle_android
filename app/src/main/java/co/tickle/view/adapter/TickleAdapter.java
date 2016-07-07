@@ -8,11 +8,12 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 
 import co.tickle.R;
+import co.tickle.view.common.BaseRecyclerAdapter;
 
 /**
  * Created by zuby on 2016-07-07.
  */
-public class TickleAdapter extends RecyclerView.Adapter {
+public class TickleAdapter extends BaseRecyclerAdapter {
     Context mContext;
     int mLayout;
 

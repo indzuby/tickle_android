@@ -30,7 +30,7 @@ public class TodayFragment extends BaseFragment {
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        mView = inflater.inflate(R.layout.fragment_today,container,false);
+        mView = inflater.inflate(R.layout.fragment_default,container,false);
         init();
         return mView;
     }
@@ -42,8 +42,8 @@ public class TodayFragment extends BaseFragment {
     }
 
     public void init(){
-        tabLayout = (TabLayout) mView.findViewById(R.id.todayTab);
-        viewPager = (ViewPager) mView.findViewById(R.id.todayViewPager);
+        tabLayout = (TabLayout) mView.findViewById(R.id.tab);
+        viewPager = (ViewPager) mView.findViewById(R.id.viewPager);
         tabAdapter =new MainItemTabAdapter(getFragmentManager(),getContext(),sampleList());
 
         viewPager.setAdapter(tabAdapter);

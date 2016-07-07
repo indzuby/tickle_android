@@ -30,7 +30,7 @@ public class CategoryFragment extends BaseFragment {
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        mView = inflater.inflate(R.layout.fragment_category,container,false);
+        mView = inflater.inflate(R.layout.fragment_default,container,false);
         init();
         return mView;
     }
@@ -42,8 +42,8 @@ public class CategoryFragment extends BaseFragment {
     }
 
     public void init(){
-        tabLayout = (TabLayout) mView.findViewById(R.id.categoryTab);
-        viewPager = (ViewPager) mView.findViewById(R.id.categoryViewPager);
+        tabLayout = (TabLayout) mView.findViewById(R.id.tab);
+        viewPager = (ViewPager) mView.findViewById(R.id.viewPager);
         tabAdapter =new MainItemTabAdapter(getFragmentManager(),getContext(),sampleList());
 
         viewPager.setAdapter(tabAdapter);

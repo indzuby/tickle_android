@@ -50,7 +50,6 @@ public class CollectFragment extends BaseFragment {
         tabLayout.setOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
             @Override
             public void onTabSelected(TabLayout.Tab tab) {
-                viewPager.setCurrentItem(tab.getPosition());
                 selectedTab(tab.getPosition());
             }
 
@@ -80,5 +79,6 @@ public class CollectFragment extends BaseFragment {
         name.setSelected(true);
         indicator.setVisibility(View.VISIBLE);
         tab.select();
+        viewPager.setCurrentItem(position);
     }
 }
