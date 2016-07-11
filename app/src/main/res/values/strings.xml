@@ -24,4 +24,11 @@
     <string name="interestTickle">관심 쿠폰</string>
 
     <string name="collectTickle">내가 모은 쿠폰</string>
+
+    <string name="changing">교환중</string>
+    <string name="changed">교환완료</string>
+
+    <string name="use">사용하기</string>
+    <string name="change">교환하기</string>
+    <string name="confirm">확인</string>
 </resources>

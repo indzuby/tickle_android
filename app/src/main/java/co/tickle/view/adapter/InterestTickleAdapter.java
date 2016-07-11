@@ -9,6 +9,7 @@ import android.view.ViewGroup;
 import co.tickle.R;
 import co.tickle.utils.CodeDefinition;
 import co.tickle.view.common.BaseRecyclerAdapter;
+import co.tickle.view.popup.ChangePopup;
 
 /**
  * Created by zuby on 2016. 7. 7..
@@ -26,6 +27,7 @@ public class InterestTickleAdapter extends BaseRecyclerAdapter {
             itemView = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_interest_add, parent, false);
         }
         else itemView = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_interest_tickle, parent, false);
+        itemView.setOnClickListener(this);
         return new ListItemViewHolder(itemView);
     }
 
@@ -51,4 +53,8 @@ public class InterestTickleAdapter extends BaseRecyclerAdapter {
         }
     }
 
+    @Override
+    public void onClick(View v) {
+        new ChangePopup(mContext).show();
+    }
 }

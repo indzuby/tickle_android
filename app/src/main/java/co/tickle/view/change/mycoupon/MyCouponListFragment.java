@@ -6,6 +6,7 @@ import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ListView;
@@ -31,7 +32,7 @@ public class MyCouponListFragment extends BaseFragment {
     }
     public void init(){
         RecyclerView listView = (RecyclerView) mView.findViewById(R.id.interestListView);
-        listView.setAdapter(new InterestTickleAdapter(getContext()));
+        listView.setAdapter(new InterestTickleAdapter(getActivity()));
         LinearLayoutManager llm = new LinearLayoutManager(getContext());
         llm.setOrientation(LinearLayoutManager.HORIZONTAL);
         listView.setLayoutManager(llm);
@@ -48,7 +49,8 @@ public class MyCouponListFragment extends BaseFragment {
         });
         gridView.setLayoutManager(glm);
         gridView.setHasFixedSize(true);
-        adapter = new MyCollectTickleAdapter(getContext());
+        adapter = new MyCollectTickleAdapter(getActivity());
         gridView.setAdapter(adapter);
+
     }
 }

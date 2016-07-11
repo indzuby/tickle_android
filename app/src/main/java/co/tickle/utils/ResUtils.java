@@ -7,7 +7,7 @@ import co.tickle.R;
  */
 public class ResUtils {
 
-    public static int[] collectHeaderTab = {R.string.coming_soon,R.string.category,R.string.best_coupon,R.string.today_coupon};
+    public static int[] collectHeaderTab = {R.string.category,R.string.best_coupon,R.string.today_coupon,R.string.coming_soon};
     public static int[] changeHeaderTab = {R.string.myCoupon,R.string.changeCondition};
     public static int[] categoryTab={R.string.all,R.string.close,R.string.beauty,R.string.shopping,R.string.leisure,R.string.book};
     public static int[] comingTab={R.string.all,R.string.close,R.string.beauty,R.string.shopping,R.string.leisure,R.string.book};

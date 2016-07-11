@@ -2,6 +2,7 @@ package co.tickle.view.common;
 
 import android.content.Context;
 import android.support.v7.widget.RecyclerView;
+import android.view.View;
 import android.view.ViewGroup;
 
 import co.tickle.utils.CodeDefinition;
@@ -9,8 +10,8 @@ import co.tickle.utils.CodeDefinition;
 /**
  * Created by zuby on 2016. 7. 7..
  */
-public abstract class BaseRecyclerAdapter extends RecyclerView.Adapter {
-    public Context mContext;
+public abstract class BaseRecyclerAdapter extends RecyclerView.Adapter implements View.OnClickListener{
+    public  Context mContext;
     public final static int LIST_VIEW_TYPE_HEADER = 0;
     public final static int LIST_VIEW_TYPE_CONTENT = 1;
     public final static int LIST_VIEW_TYPE_FOOTER = 2;
@@ -33,5 +34,4 @@ public abstract class BaseRecyclerAdapter extends RecyclerView.Adapter {
         else
             return LIST_VIEW_TYPE_CONTENT;
     }
-
 }

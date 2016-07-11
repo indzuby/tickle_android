@@ -17,6 +17,7 @@ import co.tickle.view.common.BaseFragment;
  * Created by zuby on 2016-07-06.
  */
 public class CategoryListFragment extends BaseFragment {
+
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -26,7 +27,12 @@ public class CategoryListFragment extends BaseFragment {
     }
     public void init(){
         RecyclerView listView = (RecyclerView) mView.findViewById(R.id.tickleList);
-        listView.setAdapter(new TickleAdapter(getContext(),R.layout.item_tickle_get));
+        listView.setAdapter(new TickleAdapter(getContext(),R.layout.item_tickle_get,this));
         listView.setLayoutManager(new LinearLayoutManager(getContext()));
+    }
+
+    @Override
+    public void onClick(View v) {
+        super.onClick(v);
     }
 }

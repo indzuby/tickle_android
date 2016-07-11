@@ -9,6 +9,7 @@ import android.view.ViewGroup;
 import android.widget.ListView;
 
 import co.tickle.R;
+import co.tickle.view.adapter.ChangeTickleAdapter;
 import co.tickle.view.adapter.TickleAdapter;
 import co.tickle.view.common.BaseFragment;
 
@@ -16,21 +17,52 @@ import co.tickle.view.common.BaseFragment;
  * Created by zuby on 2016-07-06.
  */
 public class ChangeConditionFragment extends BaseFragment {
+    boolean isChanging;
+    ChangeTickleAdapter adapter;
+    RecyclerView listView;
+    LinearLayoutManager llm;
+
     @Override
     public void onClick(View v) {
         super.onClick(v);
+        if(v.getId() == R.id.changing)
+            setSort(true);
+        else if(v.getId() == R.id.changed)
+            setSort(false);
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        mView = inflater.inflate(R.layout.fragment_best,container,false);
+        mView = inflater.inflate(R.layout.fragment_change_condition,container,false);
         init();
         return mView;
     }
     public void init(){
-        RecyclerView listView = (RecyclerView) mView.findViewById(R.id.tickleList);
-        listView.setAdapter(new TickleAdapter(getContext(),R.layout.item_tickle_get));
-        mView.findViewById(R.id.suggestSort).setSelected(true);
-        listView.setLayoutManager(new LinearLayoutManager(getContext()));
+        isChanging = true;
+        listView = (RecyclerView) mView.findViewById(R.id.tickleList);
+        adapter = new ChangeTickleAdapter(getContext(),true);
+        listView.setAdapter(adapter);
+        mView.findViewById(R.id.changing).setSelected(true);
+
+        llm = new LinearLayoutManager(getContext());
+        listView.setLayoutManager(llm);
+
+        mView.findViewById(R.id.changing).setOnClickListener(this);
+        mView.findViewById(R.id.changed).setOnClickListener(this);
+    }
+    public void setSort(boolean isChanging) {
+        if(this.isChanging == isChanging) return;
+        adapter.setChanging(isChanging);
+        adapter.notifyDataSetChanged();
+        if(isChanging) {
+            mView.findViewById(R.id.changing).setSelected(true);
+            mView.findViewById(R.id.changed).setSelected(false);
+        }else {
+            mView.findViewById(R.id.changing).setSelected(false);
+            mView.findViewById(R.id.changed).setSelected(true);
+        }
+
+        llm.scrollToPositionWithOffset(0, 0);
+        this.isChanging = isChanging;
     }
 }

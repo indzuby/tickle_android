@@ -12,6 +12,7 @@ import android.widget.ListView;
 import co.tickle.R;
 import co.tickle.view.adapter.TickleAdapter;
 import co.tickle.view.common.BaseFragment;
+import co.tickle.view.popup.AdvertisePopup;
 
 /**
  * Created by zuby on 2016-07-06.
@@ -26,7 +27,13 @@ public class ComingListFragment extends BaseFragment {
     }
     public void init(){
         RecyclerView listView = (RecyclerView) mView.findViewById(R.id.tickleList);
-        listView.setAdapter(new TickleAdapter(getContext(),R.layout.item_tickle_coming));
+        listView.setAdapter(new TickleAdapter(getContext(),R.layout.item_tickle_coming,this));
         listView.setLayoutManager(new LinearLayoutManager(getContext()));
+    }
+
+    @Override
+    public void onClick(View v) {
+        super.onClick(v);
+        new AdvertisePopup(getActivity()).show();
     }
 }

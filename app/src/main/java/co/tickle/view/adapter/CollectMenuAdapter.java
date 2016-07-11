@@ -41,16 +41,16 @@ public class CollectMenuAdapter /*extends FragmentStatePagerAdapter*/{
 //            return fragments.get(position);
         switch (position) {
             case 0:
-                fragment = new ComingSoonFragment();
-                break;
-            case 1:
                 fragment = new CategoryFragment();
                 break;
-            case 2:
+            case 1:
                 fragment = new BestFragment();
                 break;
-            case 3:
+            case 2:
                 fragment = new TodayFragment();
+                break;
+            case 3:
+                fragment = new ComingSoonFragment();
                 break;
         }
         FragmentTransaction ft = fm.beginTransaction();

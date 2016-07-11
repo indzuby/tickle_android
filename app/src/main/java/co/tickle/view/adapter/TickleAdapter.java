@@ -16,15 +16,17 @@ import co.tickle.view.common.BaseRecyclerAdapter;
 public class TickleAdapter extends BaseRecyclerAdapter {
     Context mContext;
     int mLayout;
-
-    public TickleAdapter(Context mContext, int layout) {
+    View.OnClickListener listener;
+    public TickleAdapter(Context mContext, int layout,View.OnClickListener listener) {
         this.mContext = mContext;
         this.mLayout = layout;
+        this.listener = listener;
     }
 
     @Override
     public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View itemView = LayoutInflater.from(parent.getContext()).inflate(mLayout,parent,false);
+        itemView.setOnClickListener(this);
         return new ListItemViewHolder(itemView);
     }
 
@@ -44,5 +46,10 @@ public class TickleAdapter extends BaseRecyclerAdapter {
         public ListItemViewHolder(View itemView) {
             super(itemView);
         }
+    }
+
+    @Override
+    public void onClick(View v) {
+        listener.onClick(v);
     }
 }

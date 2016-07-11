@@ -29,8 +29,9 @@ public class BestFragment extends BaseFragment {
     }
     public void init(){
         RecyclerView listView = (RecyclerView) mView.findViewById(R.id.tickleList);
-        listView.setAdapter(new TickleAdapter(getContext(),R.layout.item_tickle_get));
+        listView.setAdapter(new TickleAdapter(getContext(),R.layout.item_tickle_get,this));
         mView.findViewById(R.id.suggestSort).setSelected(true);
         listView.setLayoutManager(new LinearLayoutManager(getContext()));
     }
+
 }

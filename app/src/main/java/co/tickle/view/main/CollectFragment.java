@@ -55,8 +55,8 @@ public class CollectFragment extends BaseFragment {
         for (int i=0; i<tabLayout.getTabCount(); i++) {
             View tab = ((ViewGroup) tabLayout.getChildAt(0)).getChildAt(i);
             ViewGroup.MarginLayoutParams p = (ViewGroup.MarginLayoutParams) tab.getLayoutParams();
-            p.setMargins(0, 0, 0, 0);
-            tab.setPadding(0,0,0,0);
+            p.setMargins(5, 0, 0, 0);
+            tab.setPadding(5,0,0,0);
             tab.requestLayout();
         }
         selectedTab(0);
