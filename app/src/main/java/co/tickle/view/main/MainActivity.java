@@ -56,7 +56,7 @@ public class MainActivity extends BaseActivity {
         if(position == nowPosition) return;
         nowPosition = position;
         Window window = getWindow();
-        int[] res={R.color.themePink,R.color.themeBlue};
+        int[] res={R.color.themePink70,R.color.themeBlue70};
 
         BaseFragment fragment;
         FragmentTransaction ft = getSupportFragmentManager().beginTransaction();

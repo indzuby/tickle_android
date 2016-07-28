@@ -7,6 +7,8 @@ import android.view.View;
 
 
 import co.tickle.R;
+import co.tickle.utils.CodeDefinition;
+import co.tickle.utils.SessionUtils;
 import co.tickle.view.common.BaseActivity;
 import co.tickle.view.main.MainActivity;
 
@@ -22,6 +24,11 @@ public class SplashActivity extends BaseActivity {
         super.onCreate(savedInstanceState);
 
         setContentView(R.layout.activity_splash);
+
+        if(!SessionUtils.getBoolean(this, CodeDefinition.ADD_SHORTCUT,false)) {
+            SessionUtils.putBoolean(this, CodeDefinition.ADD_SHORTCUT, true);
+            addShortcut(this);
+        }
         startMainActivity();
     }
 

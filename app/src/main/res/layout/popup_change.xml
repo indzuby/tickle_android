@@ -116,6 +116,7 @@
                 android:layout_marginTop="56dp">
 
                 <Button
+                    android:id="@+id/useCouponButton"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
@@ -126,6 +127,7 @@
                     android:textStyle="bold" />
 
                 <Button
+                    android:id="@+id/changeCouponButton"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_weight="1"

@@ -8,6 +8,10 @@
     <color name="themePink">#e91e63</color>
     <color name="themeBlue">#304ffe</color>
 
+
+    <color name="themePink70">#B4e91e63</color>
+    <color name="themeBlue70">#B4304ffe</color>
+
     <color name="white">#ffffff</color>
     <color name="white50">#80ffffff</color>
     <color name="black">#000000</color>

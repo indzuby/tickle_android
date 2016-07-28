@@ -3,8 +3,8 @@
 
     <string name="coming_soon">커밍순</string>
     <string name="category">카테고리</string>
-    <string name="best_coupon">베스트쿠폰</string>
-    <string name="today_coupon">오늘의쿠폰</string>
+    <string name="bestCoupon">베스트쿠폰</string>
+    <string name="todayCoupon">오늘의쿠폰</string>
 
     <string name="myCoupon">내쿠폰</string>
     <string name="changeCondition">교환현황</string>
@@ -31,4 +31,17 @@
     <string name="use">사용하기</string>
     <string name="change">교환하기</string>
     <string name="confirm">확인</string>
+
+    <string name="barcodeDescription">바코드 생성 버튼을 누르면 모은 쿠폰 티클 금액만큼\n할인이 반영된 할인 쿠폰이 생성됩니다.</string>
+    <string name="createBarcode">쿠폰 바코드 생성</string>
+
+    <string name="storeInformation">매장 정보</string>
+    <string name="telephone">전화번호</string>
+    <string name="note">유의사항</string>
+    <string name="address">주소</string>
+    <string name="businessHours">영업시간</string>
+    <string name="otherNote">기타사항</string>
+
+    <string name="changeCoupon">쿠폰 교환</string>
+    <string name="useCoupon">쿠폰 사용</string>
 </resources>
