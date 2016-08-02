@@ -1,17 +1,15 @@
-package co.tickle.view.change.mycoupon;
+package co.tickle.view.main;
 
 import android.os.Bundle;
-import android.view.MenuItem;
 import android.view.View;
 
 import co.tickle.R;
 import co.tickle.view.common.BaseActivity;
 
 /**
- * Created by rlawn on 2016-07-28.
+ * Created by zuby on 2016-08-02.
  */
-public class UseCouponActivity extends BaseActivity {
-
+public class SignUpActivity extends BaseActivity {
     @Override
     public void onClick(View v) {
         super.onClick(v);
@@ -20,7 +18,7 @@ public class UseCouponActivity extends BaseActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_use_coupon);
+        setContentView(R.layout.activity_change_coupon);
         init();
     }
 

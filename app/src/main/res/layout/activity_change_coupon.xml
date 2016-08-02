@@ -43,6 +43,7 @@
                 android:src="@mipmap/icon_exchange1" />
 
             <LinearLayout
+                android:id="@+id/findLayout"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_toRightOf="@+id/exchangeIcon"

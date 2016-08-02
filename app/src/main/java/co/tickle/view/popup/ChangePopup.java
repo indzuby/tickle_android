@@ -8,6 +8,7 @@ import android.support.v4.content.ContextCompat;
 import android.view.View;
 
 import co.tickle.R;
+import co.tickle.view.change.mycoupon.ChangeCouponActivity;
 import co.tickle.view.change.mycoupon.UseCouponActivity;
 
 /**
@@ -39,6 +40,10 @@ public class ChangePopup extends Dialog implements View.OnClickListener{
         if(v.getId() == R.id.useCouponButton) {
             Intent intent = new Intent(getContext(), UseCouponActivity.class);
             getContext().startActivity(intent);
+        }else if(v.getId() == R.id.changeCouponButton) {
+            Intent intent = new Intent(getContext(), ChangeCouponActivity.class);
+            getContext().startActivity(intent);
+
         }
         dismiss();
     }

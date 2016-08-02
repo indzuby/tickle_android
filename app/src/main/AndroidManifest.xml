@@ -20,7 +20,22 @@
             </intent-filter>
         </activity>
         <activity android:name=".view.change.mycoupon.UseCouponActivity"
+            android:label="@string/useCoupon"
+            android:theme="@style/AppTheme"></activity>
+        <activity android:name=".view.change.mycoupon.ChangeCouponActivity"
             android:label="@string/changeCoupon"
+            android:theme="@style/AppTheme"></activity>
+        <activity android:name=".view.main.LoginActivity"
+            android:label="@string/login"
+            android:windowSoftInputMode="stateHidden|adjustResize"
+            android:theme="@style/AppTheme"></activity>
+        <activity android:name=".view.main.SignUpActivity"
+            android:label="@string/signUp"
+            android:windowSoftInputMode="stateHidden|adjustResize"
+            android:theme="@style/AppTheme"></activity>
+        <activity android:name=".view.main.SettingActivity"
+            android:windowSoftInputMode="stateHidden|adjustResize"
+            android:label="@string/setting"
             android:theme="@style/AppTheme"></activity>
     </application>
 
