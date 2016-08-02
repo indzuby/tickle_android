@@ -25,18 +25,22 @@
         <activity android:name=".view.change.mycoupon.ChangeCouponActivity"
             android:label="@string/changeCoupon"
             android:theme="@style/AppTheme"></activity>
-        <activity android:name=".view.main.LoginActivity"
+        <activity android:name=".view.account.LoginActivity"
             android:label="@string/login"
-            android:windowSoftInputMode="stateHidden|adjustResize"
+            android:windowSoftInputMode="stateHidden|adjustPan"
             android:theme="@style/AppTheme"></activity>
-        <activity android:name=".view.main.SignUpActivity"
+        <activity android:name=".view.account.SignUpActivity"
             android:label="@string/signUp"
-            android:windowSoftInputMode="stateHidden|adjustResize"
+            android:windowSoftInputMode="stateHidden|adjustPan"
             android:theme="@style/AppTheme"></activity>
-        <activity android:name=".view.main.SettingActivity"
-            android:windowSoftInputMode="stateHidden|adjustResize"
+        <activity android:name=".view.account.SettingActivity"
+            android:windowSoftInputMode="stateHidden|adjustPan"
             android:label="@string/setting"
             android:theme="@style/AppTheme"></activity>
+        <activity android:name=".view.change.mycoupon.FindCouponActivity"
+            android:windowSoftInputMode="stateHidden|adjustPan"
+            android:label="@string/setting"
+            android:theme="@style/Theme.Transparent"></activity>
     </application>
 
 </manifest>

@@ -1,4 +1,4 @@
-package co.tickle.view.popup;
+package co.tickle.view.change.mycoupon;
 
 import android.app.Activity;
 import android.app.Dialog;
@@ -29,16 +29,10 @@ import co.tickle.view.common.BaseActivity;
 /**
  * Created by zuby on 2016-08-02.
  */
-public class FindTicklePopup extends Dialog implements View.OnClickListener {
+public class FindCouponActivity extends BaseActivity implements View.OnClickListener {
     MainItemTabAdapter tabAdapter;
     ViewPager viewPager;
     TabLayout tabLayout;
-    BaseActivity mActivity;
-
-    public FindTicklePopup(BaseActivity activity) {
-        super(activity, android.R.style.Theme_DeviceDefault_Light_NoActionBar);
-        mActivity = activity;
-    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -55,42 +49,40 @@ public class FindTicklePopup extends Dialog implements View.OnClickListener {
     }
 
     public void init() {
-        getWindow().setBackgroundDrawable(ContextCompat.getDrawable(getContext(), R.color.black50));
         findViewById(R.id.closeButton).setOnClickListener(this);
         findViewById(R.id.layout).setOnClickListener(this);
-        setCanceledOnTouchOutside(true);
 
         tabLayout = (TabLayout) findViewById(R.id.tabs);
         viewPager = (ViewPager) findViewById(R.id.viewPager);
-//        tabAdapter = new MainItemTabAdapter(mActivity.getSupportFragmentManager(), getContext(), sampleList());
-//        viewPager.setAdapter(tabAdapter);
-//        tabLayout.setupWithViewPager(viewPager);
-//        for (int i = 0; i < tabLayout.getTabCount(); i++) {
-//            TabLayout.Tab tab = tabLayout.getTabAt(i);
-//            tab.setText(ResUtils.categoryTab[i]);
-//        }
-//        viewPager.setCurrentItem(0);
-//        tabLayout.setOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
-//            @Override
-//            public void onTabSelected(TabLayout.Tab tab) {
-//                viewPager.setCurrentItem(tab.getPosition());
-//            }
-//
-//            @Override
-//            public void onTabUnselected(TabLayout.Tab tab) {
-//
-//            }
-//
-//            @Override
-//            public void onTabReselected(TabLayout.Tab tab) {
-//
-//            }
-//        });
+        tabAdapter = new MainItemTabAdapter(getSupportFragmentManager(),this, sampleList());
+        viewPager.setAdapter(tabAdapter);
+        tabLayout.setupWithViewPager(viewPager);
+        for (int i = 0; i < tabLayout.getTabCount(); i++) {
+            TabLayout.Tab tab = tabLayout.getTabAt(i);
+            tab.setText(ResUtils.categoryTab[i]);
+        }
+        viewPager.setCurrentItem(0);
+        tabLayout.setOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
+            @Override
+            public void onTabSelected(TabLayout.Tab tab) {
+                viewPager.setCurrentItem(tab.getPosition());
+            }
+
+            @Override
+            public void onTabUnselected(TabLayout.Tab tab) {
+
+            }
+
+            @Override
+            public void onTabReselected(TabLayout.Tab tab) {
+
+            }
+        });
 
     }
 
     @Override
     public void onClick(View v) {
-        dismiss();
+        finish();
     }
 }

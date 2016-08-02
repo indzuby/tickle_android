@@ -8,8 +8,9 @@
 
     <ImageView
         android:id="@+id/thumbnail"
-        android:layout_width="wrap_content"
-        android:layout_height="match_parent"
+        android:layout_centerVertical="true"
+        android:layout_width="93dp"
+        android:layout_height="93dp"
         android:src="@mipmap/thumbnail" />
 
     <View

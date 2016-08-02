@@ -1,11 +1,11 @@
 package co.tickle.view.change.mycoupon;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 
 import co.tickle.R;
 import co.tickle.view.common.BaseActivity;
-import co.tickle.view.popup.FindTicklePopup;
 
 /**
  * Created by zuby on 2016-08-02.
@@ -15,7 +15,8 @@ public class ChangeCouponActivity extends BaseActivity {
     public void onClick(View v) {
         super.onClick(v);
         if(v.getId() == R.id.findLayout) {
-            new FindTicklePopup(ChangeCouponActivity.this).show();
+            Intent intent = new Intent(this, FindCouponActivity.class);
+            startActivity(intent);
         }
     }
 

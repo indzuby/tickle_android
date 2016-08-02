@@ -21,6 +21,8 @@
             android:hint="이메일 아이디"
             android:layout_width="match_parent"
             android:textColor="@color/black33"
+            android:padding="8dp"
+            android:background="@color/transparent"
             android:textSize="12sp"
             android:inputType="textEmailAddress"
             android:textColorHint="@color/graybd"
@@ -41,6 +43,8 @@
         <EditText
             android:hint="패스워드 (영문, 숫자조합 6-15자)"
             android:inputType="textPassword"
+            android:padding="8dp"
+            android:background="@color/transparent"
             android:layout_width="match_parent"
             android:textColor="@color/black33"
             android:textSize="12sp"

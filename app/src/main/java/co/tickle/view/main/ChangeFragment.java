@@ -13,6 +13,7 @@ import co.tickle.utils.SwipeDisableViewPager;
 import co.tickle.view.adapter.ChangeMenuAdapter;
 import co.tickle.view.adapter.CollectMenuAdapter;
 import co.tickle.view.common.BaseFragment;
+import co.tickle.view.popup.AccountPopup;
 
 /**
  * Created by zuby on 2016-07-07.
@@ -23,19 +24,14 @@ public class ChangeFragment extends BaseFragment {
     SwipeDisableViewPager viewPager;
     ChangeMenuAdapter mainAdapter;
 
-    private static ChangeFragment instance;
 
-    public static ChangeFragment getInstance() {
-        synchronized (ChangeFragment.class) {
-            if (instance == null) {
-                instance = new ChangeFragment();
-            }
+    @Override
+    public void onClick(View v) {
+        super.onClick(v);
+        if(v.getId() == R.id.settingButton) {
+            new AccountPopup(getActivity()).show();
         }
-        return instance;
     }
-
-
-
 
     @Nullable
     @Override
@@ -74,6 +70,7 @@ public class ChangeFragment extends BaseFragment {
 
             }
         });
+        mView.findViewById(R.id.settingButton).setOnClickListener(this);
     }
     public void selectedTab(int position){
         for(int i = 0; i<tabLayout.getTabCount();i++) {

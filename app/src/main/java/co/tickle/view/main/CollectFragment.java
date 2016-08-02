@@ -12,6 +12,7 @@ import co.tickle.utils.ResUtils;
 import co.tickle.utils.SwipeDisableViewPager;
 import co.tickle.view.adapter.CollectMenuAdapter;
 import co.tickle.view.common.BaseFragment;
+import co.tickle.view.popup.AccountPopup;
 
 /**
  * Created by zuby on 2016-07-07.
@@ -22,15 +23,14 @@ public class CollectFragment extends BaseFragment {
     SwipeDisableViewPager viewPager;
     CollectMenuAdapter mainAdapter;
 
-    private static CollectFragment instance;
 
-    public static CollectFragment getInstance() {
-        synchronized (CollectFragment.class) {
-            if (instance == null) {
-                instance = new CollectFragment();
-            }
+    @Override
+    public void onClick(View v) {
+        super.onClick(v);
+        if(v.getId() == R.id.settingButton) {
+            new AccountPopup(getActivity()).show();
+
         }
-        return instance;
     }
 
     @Nullable
@@ -76,6 +76,7 @@ public class CollectFragment extends BaseFragment {
 
             }
         });
+        mView.findViewById(R.id.settingButton).setOnClickListener(this);
 
     }
     public void selectedTab(int position){

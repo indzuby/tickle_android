@@ -20,6 +20,8 @@
             android:text="닉네임"
             android:layout_height="wrap_content" />
         <EditText
+            android:padding="8dp"
+            android:background="@color/transparent"
             android:layout_weight="2"
             android:hint="사용할 닉네임 입력"
             android:layout_width="0dp"
@@ -44,6 +46,8 @@
             android:text="이메일"
             android:layout_height="wrap_content" />
         <EditText
+            android:padding="8dp"
+            android:background="@color/transparent"
             android:layout_weight="2"
             android:hint="로그인에 사용할 메일주소"
             android:layout_width="0dp"
@@ -68,6 +72,8 @@
             android:text="비밀번호"
             android:layout_height="wrap_content" />
         <EditText
+            android:padding="8dp"
+            android:background="@color/transparent"
             android:layout_weight="2"
             android:hint="영문,숫자 조합 6-15자"
             android:layout_width="0dp"
@@ -92,6 +98,8 @@
             android:text="비밀번호 확인"
             android:layout_height="wrap_content" />
         <EditText
+            android:padding="8dp"
+            android:background="@color/transparent"
             android:layout_weight="2"
             android:hint="비밀번호 재입력"
             android:layout_width="0dp"
