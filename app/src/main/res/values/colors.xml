@@ -19,7 +19,7 @@
     <color name="blackBackground">#1E1E1F</color>
     <color name="gray">#888888</color>
 
-    <color name="grayBackground">#c4c4c4</color>
+    <color name="grayBackground">#e7e7e7</color>
 
     <color name="lightGrayBackground">#efefef</color>
 
@@ -31,4 +31,15 @@
     <color name="gray97">#979797</color>
     <color name="black3c">#3c3c3c</color>
 
+
+    <color name="graybd">#bdc3c9</color>
+
+    <color name="black3b">#3b4045</color>
+    <color name="line8c">#8c99a6</color>
+
+    <color name="grayc6">#c6c6c6</color>
+
+    <color name="gray66">#666666</color>
+
+    <color name="gray89">#898989</color>
 </resources>

@@ -1,9 +1,6 @@
 package co.tickle.view.change.mycoupon;
 
-import android.content.Context;
 import android.os.Bundle;
-import android.support.v4.content.ContextCompat;
-import android.support.v7.app.ActionBar;
 import android.view.MenuItem;
 import android.view.View;
 
@@ -23,7 +20,7 @@ public class UseCouponActivity extends BaseActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_user_coupon);
+        setContentView(R.layout.activity_use_coupon);
         init();
     }
 
