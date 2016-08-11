@@ -7,10 +7,9 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ListView;
 
 import co.tickle.R;
-import co.tickle.view.adapter.TickleAdapter;
+import co.tickle.view.adapter.CommingSoonAdapter;
 import co.tickle.view.common.BaseFragment;
 import co.tickle.view.popup.AdvertisePopup;
 
@@ -21,13 +20,13 @@ public class ComingListFragment extends BaseFragment {
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        mView =  inflater.inflate(R.layout.fragment_tickle_list,container,false);
+        mView =  inflater.inflate(R.layout.fragment_ticket_list,container,false);
         init();
         return mView;
     }
     public void init(){
         RecyclerView listView = (RecyclerView) mView.findViewById(R.id.tickleList);
-        listView.setAdapter(new TickleAdapter(getContext(),R.layout.item_tickle_coming,this));
+        listView.setAdapter(new CommingSoonAdapter(getContext(),R.layout.item_ticket_coming,this));
         listView.setLayoutManager(new LinearLayoutManager(getContext()));
     }
 

@@ -6,11 +6,9 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ListView;
 
 import co.tickle.R;
-import co.tickle.view.adapter.ChangeTickleAdapter;
-import co.tickle.view.adapter.TickleAdapter;
+import co.tickle.view.adapter.ChangeTicketAdapter;
 import co.tickle.view.common.BaseFragment;
 
 /**
@@ -18,7 +16,7 @@ import co.tickle.view.common.BaseFragment;
  */
 public class ChangeConditionFragment extends BaseFragment {
     boolean isChanging;
-    ChangeTickleAdapter adapter;
+    ChangeTicketAdapter adapter;
     RecyclerView listView;
     LinearLayoutManager llm;
 
@@ -40,7 +38,7 @@ public class ChangeConditionFragment extends BaseFragment {
     public void init(){
         isChanging = true;
         listView = (RecyclerView) mView.findViewById(R.id.tickleList);
-        adapter = new ChangeTickleAdapter(getContext(),true);
+        adapter = new ChangeTicketAdapter(getContext(),true);
         listView.setAdapter(adapter);
         mView.findViewById(R.id.changing).setSelected(true);
 

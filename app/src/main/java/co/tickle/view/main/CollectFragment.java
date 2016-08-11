@@ -36,7 +36,7 @@ public class CollectFragment extends BaseFragment {
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        mView =  inflater.inflate(R.layout.fragment_tickle_collect,container,false);
+        mView =  inflater.inflate(R.layout.fragment_ticket_collect,container,false);
         init();
         return mView;
     }

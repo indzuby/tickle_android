@@ -6,4 +6,17 @@ package co.tickle.utils;
 public class CodeDefinition {
 
     public final static String ADD_SHORTCUT = "ADD_SHORTCUT";
+
+    public final static String TOKEN = "TOKEN";
+
+    public final static String CATEGORY_PARAM ="CATEGORY_PARAM";
+
+    public final static String ID_PARAM ="ID_PARAM";
+
+    public final static String QUANTITY_PARAM ="QUANTITY_PARAM";
+
+    public final static Integer TICKLE_PRICE = 100;
+
+
+    public final static int FIND_REQUEST_CODE = 7736;
 }

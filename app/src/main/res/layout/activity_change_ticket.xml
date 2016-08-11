@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/grayBackground"
+        android:orientation="vertical"
+        android:paddingBottom="18dp"
+        android:paddingLeft="15dp"
+        android:paddingRight="15dp"
+        android:paddingTop="19dp">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="290dp"
+            android:orientation="horizontal">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_toLeftOf="@+id/exchangeIcon"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/themeBlue"
+                    android:paddingBottom="8dp"
+                    android:paddingTop="8dp"
+                    android:src="@mipmap/label_exchange1" />
+
+                <LinearLayout
+                    android:id="@+id/fromTicketLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <include layout="@layout/element_change_ticket" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <ImageView
+                android:id="@+id/exchangeIcon"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_centerInParent="true"
+                android:src="@mipmap/icon_exchange1" />
+
+            <LinearLayout
+                android:id="@+id/findLayout"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_toRightOf="@+id/exchangeIcon"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/themePink"
+                    android:paddingBottom="8dp"
+                    android:paddingTop="8dp"
+                    android:src="@mipmap/label_exchange2" />
+
+                <LinearLayout
+                    android:id="@+id/toTicketLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <include
+                        layout="@layout/element_change_ticket"
+                        android:visibility="gone" />
+
+                    <include layout="@layout/element_select_change_ticket" />
+                </LinearLayout>
+            </LinearLayout>
+        </RelativeLayout>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="38dp"
+            android:layout_marginTop="18dp"
+            android:background="@color/gray89"
+            android:gravity="center"
+            android:text="제안하기"
+            android:textColor="@color/white"
+            android:textSize="15sp"
+            android:textStyle="bold" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white"
+        android:gravity="center"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="교환받고 싶은 쿠폰을 선택하면\n즉시 교환가능한 제안이 나타납니다."
+            android:textColor="@color/black33"
+            android:textSize="14sp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:gravity="center"
+            android:text="(마음에 드는 제안이 없는 경우, 직접 제안 할 수 잇습니다.)"
+            android:textColor="@color/black33"
+            android:textSize="10sp" />
+    </LinearLayout>
+</LinearLayout>

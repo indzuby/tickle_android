@@ -11,8 +11,6 @@ import co.tickle.R;
 import co.tickle.view.account.LoginActivity;
 import co.tickle.view.account.SettingActivity;
 import co.tickle.view.account.SignUpActivity;
-import co.tickle.view.change.mycoupon.ChangeCouponActivity;
-import co.tickle.view.change.mycoupon.UseCouponActivity;
 
 /**
  * Created by zuby on 2016. 7. 8..

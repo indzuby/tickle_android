@@ -6,9 +6,11 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ListView;
+
+import java.util.ArrayList;
 
 import co.tickle.R;
+import co.tickle.model.Ticket;
 import co.tickle.view.adapter.TickleAdapter;
 import co.tickle.view.common.BaseFragment;
 
@@ -29,7 +31,7 @@ public class BestFragment extends BaseFragment {
     }
     public void init(){
         RecyclerView listView = (RecyclerView) mView.findViewById(R.id.tickleList);
-        listView.setAdapter(new TickleAdapter(getContext(),R.layout.item_tickle_get,this));
+        listView.setAdapter(new TickleAdapter(getContext(),new ArrayList<Ticket>(),this));
         mView.findViewById(R.id.suggestSort).setSelected(true);
         listView.setLayoutManager(new LinearLayoutManager(getContext()));
     }

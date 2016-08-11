@@ -1,6 +1,5 @@
 package co.tickle.view.main;
 
-import android.content.Context;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.design.widget.TabLayout;
@@ -11,7 +10,6 @@ import android.view.ViewGroup;
 import co.tickle.R;
 import co.tickle.utils.SwipeDisableViewPager;
 import co.tickle.view.adapter.ChangeMenuAdapter;
-import co.tickle.view.adapter.CollectMenuAdapter;
 import co.tickle.view.common.BaseFragment;
 import co.tickle.view.popup.AccountPopup;
 
@@ -36,7 +34,7 @@ public class ChangeFragment extends BaseFragment {
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        mView =  inflater.inflate(R.layout.fragment_tickle_change,container,false);
+        mView =  inflater.inflate(R.layout.fragment_ticket_change,container,false);
         init();
         return mView;
     }

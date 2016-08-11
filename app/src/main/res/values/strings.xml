@@ -10,7 +10,8 @@
     <string name="changeCondition">교환현황</string>
     <string name="all">전체</string>
     <string name="close">내 주변</string>
-    <string name="restaurant">음식점</string>
+    <string name="food">음식점</string>
+    <string name="cloth">의류</string>
     <string name="beauty">뷰티</string>
     <string name="shopping">생활/쇼핑</string>
     <string name="leisure">레저</string>

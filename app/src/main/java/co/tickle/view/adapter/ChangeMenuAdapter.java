@@ -14,7 +14,7 @@ import java.util.Map;
 import co.tickle.R;
 import co.tickle.utils.ResUtils;
 import co.tickle.view.change.condition.ChangeConditionFragment;
-import co.tickle.view.change.mycoupon.MyCouponFragment;
+import co.tickle.view.change.myticket.MyTicketFragment;
 import co.tickle.view.common.BaseFragment;
 
 /**
@@ -37,7 +37,7 @@ public class ChangeMenuAdapter extends FragmentStatePagerAdapter{
         BaseFragment fragment = null;
         switch(position) {
             case 0:
-                fragment = new MyCouponFragment();
+                fragment = new MyTicketFragment();
                 break;
             case 1:
                 fragment = new ChangeConditionFragment();
