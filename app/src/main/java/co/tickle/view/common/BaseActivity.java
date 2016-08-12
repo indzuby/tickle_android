@@ -14,12 +14,14 @@ import android.view.Window;
 import android.view.WindowManager;
 
 import co.tickle.R;
+import co.tickle.utils.CodeDefinition;
+import co.tickle.utils.SessionUtils;
 
 /**
  * Created by zuby on 2016. 4. 5..
  */
 public class BaseActivity extends AppCompatActivity implements View.OnClickListener{
-
+    protected String token;
     @Override
     public void onClick(View v) {
 
@@ -28,6 +30,7 @@ public class BaseActivity extends AppCompatActivity implements View.OnClickListe
     @Override
     protected void onCreate( Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        token = SessionUtils.getString(this, CodeDefinition.TOKEN,"");
     }
 
     public void init(){

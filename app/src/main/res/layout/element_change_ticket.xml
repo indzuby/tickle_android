@@ -109,35 +109,28 @@
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:padding="10dp">
+            android:orientation="horizontal">
 
             <ImageView
+                android:layout_margin="10dp"
                 android:layout_width="25dp"
                 android:layout_height="14dp"
                 android:layout_centerVertical="true"
                 android:src="@mipmap/label_exchange4" />
 
-            <TextView
+            <Spinner
+                android:layout_alignParentRight="true"
                 android:id="@+id/quantityView"
                 android:gravity="center_vertical"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerVertical="true"
-                android:layout_toLeftOf="@+id/arrowDown"
                 android:text="3,500원"
                 android:textColor="@color/themeBlue"
                 android:textSize="14sp"
+                android:dropDownSelector="@mipmap/icon_arrow2"
                 android:textStyle="bold" />
 
-            <ImageView
-                android:id="@+id/arrowDown"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentRight="true"
-                android:layout_centerVertical="true"
-                android:layout_marginLeft="7dp"
-                android:src="@mipmap/icon_arrow2" />
         </RelativeLayout>
     </LinearLayout>
 </LinearLayout>

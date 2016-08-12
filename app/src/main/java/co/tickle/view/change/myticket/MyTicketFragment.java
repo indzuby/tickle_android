@@ -42,6 +42,7 @@ public class MyTicketFragment extends BaseFragment {
     }
 
     public void init(){
+        super.init();
         tabLayout = (TabLayout) mView.findViewById(R.id.tab);
         viewPager = (ViewPager) mView.findViewById(R.id.viewPager);
         tabAdapter =new MainItemTabAdapter(getFragmentManager(),getContext(),sampleList());

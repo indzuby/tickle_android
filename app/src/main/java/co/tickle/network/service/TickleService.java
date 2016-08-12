@@ -16,7 +16,7 @@ import retrofit2.http.Query;
 public interface TickleService {
 
     @GET("/tickle/list")
-    Call<TicketListResponseForm> getList(@Query("category") String category);
+    Call<TicketListResponseForm> getList(@Query("mode")String mode, @Query("category") String category);
 
     @FormUrlEncoded
     @POST("/tickle/get")

@@ -30,6 +30,7 @@ public class BestFragment extends BaseFragment {
         return mView;
     }
     public void init(){
+        super.init();
         RecyclerView listView = (RecyclerView) mView.findViewById(R.id.tickleList);
         listView.setAdapter(new TickleAdapter(getContext(),new ArrayList<Ticket>(),this));
         mView.findViewById(R.id.suggestSort).setSelected(true);

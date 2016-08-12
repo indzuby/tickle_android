@@ -10,13 +10,17 @@ import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
+import android.widget.Toast;
 
 
 import co.tickle.R;
+import co.tickle.utils.CodeDefinition;
+import co.tickle.utils.SessionUtils;
 import co.tickle.utils.SwipeDisableViewPager;
 import co.tickle.view.adapter.MainMenuAdapter;
 import co.tickle.view.common.BaseActivity;
 import co.tickle.view.common.BaseFragment;
+import co.tickle.view.popup.AccountPopup;
 
 
 public class MainActivity extends BaseActivity {
@@ -32,7 +36,13 @@ public class MainActivity extends BaseActivity {
         if(v.getId() == R.id.headerCollectButton) {
             selectedTab(0);
         }else if(v.getId() == R.id.headerChangeButton) {
-            selectedTab(1);
+
+            token = SessionUtils.getString(this, CodeDefinition.TOKEN,"");
+            if(token== null || token.length()<=0) {
+                Toast.makeText(this, "로그인이 필요합니다.", Toast.LENGTH_SHORT).show();
+                new AccountPopup(this).show();
+            }else
+                selectedTab(1);
         }
     }
 

@@ -6,8 +6,18 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.TextView;
+
+import com.bumptech.glide.Glide;
+import com.bumptech.glide.util.Util;
+
+import java.util.List;
 
 import co.tickle.R;
+import co.tickle.model.Ticket;
+import co.tickle.model.Trade;
+import co.tickle.utils.CodeDefinition;
+import co.tickle.utils.Utils;
 import co.tickle.view.common.BaseRecyclerAdapter;
 import lombok.Setter;
 
@@ -20,26 +30,47 @@ public class ChangeTicketAdapter extends BaseRecyclerAdapter {
     @Setter
     boolean isChanging;
 
-    public ChangeTicketAdapter(Context mContext, boolean isChanging) {
+    List<Trade> mTrades;
+
+    public ChangeTicketAdapter(Context mContext,List<Trade> mTrades, boolean isChanging) {
         this.mContext = mContext;
+        this.mTrades = mTrades;
         this.isChanging = isChanging;
     }
 
     @Override
     public int getItemCount() {
-        return 20;
+        return mTrades.size();
     }
 
     @Override
     public void onBindViewHolder(RecyclerView.ViewHolder viewHolder, int position) {
 
-        ListItemViewHolder holder = (ListItemViewHolder) viewHolder;
+        ListItemViewHolder h = (ListItemViewHolder) viewHolder;
 
         if(isChanging)
-            holder.iconCondition.setImageResource(R.mipmap.icon_changing);
+            h.iconCondition.setImageResource(R.mipmap.icon_changing);
         else
-            holder.iconCondition.setImageResource(R.mipmap.icon_changing_complete);
+            h.iconCondition.setImageResource(R.mipmap.icon_changing_complete);
 
+        Trade trade = mTrades.get(position);
+
+        Ticket fromTicket = trade.getFromTicket();
+        Ticket toTicket = trade.getToTicket();
+        
+        // from
+        Glide.with(mContext).load(fromTicket.getThumbnail()).into(h.fromThumbnailView);
+        h.fromCompanyNameView.setText(fromTicket.getCompany());
+        h.fromNameView.setText(fromTicket.getName());
+        h.fromQuantityView.setText(Utils.getPriceToString(fromTicket.getQuantity()* CodeDefinition.TICKLE_PRICE));
+        
+        // to
+
+        Glide.with(mContext).load(toTicket.getThumbnail()).into(h.toThumbnailView);
+        h.toCompanyNameView.setText(toTicket.getCompany());
+        h.toNameView.setText(toTicket.getName());
+        h.toQuantityView.setText(Utils.getPriceToString(toTicket.getQuantity()* CodeDefinition.TICKLE_PRICE));
+        
     }
 
     @Override
@@ -51,11 +82,34 @@ public class ChangeTicketAdapter extends BaseRecyclerAdapter {
 
     class ListItemViewHolder extends RecyclerView.ViewHolder {
         // ViewHolder
-        ImageView iconCondition;
-        public ListItemViewHolder(View itemView) {
-            super(itemView);
+        
+        ImageView fromThumbnailView;
+        TextView fromCompanyNameView;
+        TextView fromNameView;
+        TextView fromQuantityView;
 
-            iconCondition = (ImageView) itemView.findViewById(R.id.iconCondition);
+        ImageView toThumbnailView;
+        TextView toCompanyNameView;
+        TextView toNameView;
+        TextView toQuantityView;
+        
+        ImageView iconCondition;
+        
+        
+        public ListItemViewHolder(View v) {
+            super(v);
+
+            iconCondition = (ImageView) v.findViewById(R.id.iconCondition);
+            
+            fromThumbnailView = (ImageView) v.findViewById(R.id.fromThumbnailView);
+            fromCompanyNameView = (TextView) v.findViewById(R.id.fromCompanyNameView);
+            fromNameView = (TextView) v.findViewById(R.id.fromNameView);
+            fromQuantityView = (TextView) v.findViewById(R.id.fromQuantityView);
+
+            toThumbnailView = (ImageView) v.findViewById(R.id.toThumbnailView);
+            toCompanyNameView = (TextView) v.findViewById(R.id.toCompanyNameView);
+            toNameView = (TextView) v.findViewById(R.id.toNameView);
+            toQuantityView = (TextView) v.findViewById(R.id.toQuantityView);
         }
     }
 

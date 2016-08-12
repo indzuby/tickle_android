@@ -44,6 +44,7 @@ public class FindTicketActivity extends BaseActivity implements View.OnClickList
     }
 
     public void init() {
+        super.init();
         findViewById(R.id.closeButton).setOnClickListener(this);
         findViewById(R.id.layout).setOnClickListener(this);
 

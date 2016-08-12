@@ -7,6 +7,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import java.util.List;
 
@@ -16,8 +17,10 @@ import co.tickle.network.controller.TickleController;
 import co.tickle.network.form.ResponseForm;
 import co.tickle.network.form.TicketListResponseForm;
 import co.tickle.utils.CodeDefinition;
+import co.tickle.utils.SessionUtils;
 import co.tickle.view.adapter.TickleAdapter;
 import co.tickle.view.common.BaseFragment;
+import co.tickle.view.popup.AccountPopup;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -39,7 +42,7 @@ public class CategoryListFragment extends BaseFragment {
     }
     public void initData(){
         String category = getArguments().getString(CodeDefinition.CATEGORY_PARAM);
-        TickleController.getInstance(getContext()).getList(category, new Callback<TicketListResponseForm>() {
+        TickleController.getInstance(getContext()).getList("category",category, new Callback<TicketListResponseForm>() {
             @Override
             public void onResponse(Call<TicketListResponseForm> call, Response<TicketListResponseForm> response) {
                 if(response.body().getCode() == 200) {
@@ -55,6 +58,7 @@ public class CategoryListFragment extends BaseFragment {
         });
     }
     public void init(){
+        super.init();
         RecyclerView listView = (RecyclerView) mView.findViewById(R.id.tickleList);
         mAdapter = new TickleAdapter(getContext(),mTickets,this);
         listView.setAdapter(mAdapter);
@@ -82,8 +86,14 @@ public class CategoryListFragment extends BaseFragment {
     public void onClick(View v) {
         super.onClick(v);
         if(v.getId() == R.id.tickleSelectLayout) {
-            Ticket ticket = (Ticket) v.getTag();
-            downloadTickle(ticket);
+            token = SessionUtils.getString(getContext(),CodeDefinition.TOKEN,"");
+            if(token== null || token.length()<=0) {
+                Toast.makeText(getContext(),"로그인이 필요합니다.",Toast.LENGTH_SHORT).show();
+                new AccountPopup(getActivity()).show();
+            }else {
+                Ticket ticket = (Ticket) v.getTag();
+                downloadTickle(ticket);
+            }
         }
     }
 }

@@ -53,6 +53,7 @@ public class MyTicketListFragment extends BaseFragment {
         });
     }
     public void init(){
+        super.init();
         TextView interestCountView = (TextView) mView.findViewById(R.id.interestCountView);
         interestCountView.setText("0");
         RecyclerView listView = (RecyclerView) mView.findViewById(R.id.interestListView);

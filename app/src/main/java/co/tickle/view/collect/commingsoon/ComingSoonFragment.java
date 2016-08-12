@@ -12,8 +12,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 import co.tickle.R;
+import co.tickle.utils.CodeDefinition;
 import co.tickle.utils.ResUtils;
 import co.tickle.view.adapter.MainItemTabAdapter;
+import co.tickle.view.collect.category.CategoryListFragment;
 import co.tickle.view.common.BaseFragment;
 
 /**
@@ -36,11 +38,17 @@ public class ComingSoonFragment extends BaseFragment {
     }
     public List<Fragment> sampleList(){
         List<Fragment> fragments = new ArrayList<>();
-        for(int i=0;i<ResUtils.comingTab.length;i++)
-            fragments.add(new ComingListFragment());
+        for(int i=0;i<ResUtils.comingTab.length;i++) {
+            Fragment fragment = new ComingListFragment();
+            Bundle bundle = new Bundle();
+            bundle.putString(CodeDefinition.CATEGORY_PARAM, ResUtils.tabParam[i]);
+            fragment.setArguments(bundle);
+            fragments.add(fragment);
+        }
         return fragments;
     }
     public void init(){
+        super.init();
         tabLayout = (TabLayout) mView.findViewById(R.id.tab);
         viewPager = (ViewPager) mView.findViewById(R.id.viewPager);
         tabAdapter = new MainItemTabAdapter(getFragmentManager(),getContext(),sampleList());

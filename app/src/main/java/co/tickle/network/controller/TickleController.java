@@ -30,8 +30,8 @@ public class TickleController extends BaseController {
         return (TickleController) instance;
     }
 
-    public void getList(String category, Callback<TicketListResponseForm> callback){
-        Call<TicketListResponseForm> call = tickleService.getList(category);
+    public void getList(String mode,String category, Callback<TicketListResponseForm> callback){
+        Call<TicketListResponseForm> call = tickleService.getList(mode,category);
         call.enqueue(callback);
 
     }

@@ -59,6 +59,7 @@ public class FindTicketListFragment extends BaseFragment {
         });
     }
     public void init(){
+        super.init();
         mQuantity = getActivity().getIntent().getIntExtra(CodeDefinition.QUANTITY_PARAM,0);
         RecyclerView listView = (RecyclerView) mView.findViewById(R.id.tickleList);
         mAdapter = new FindTicketAdapter(getContext(),mTickets,mQuantity,itemListener);

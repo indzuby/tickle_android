@@ -1,6 +1,9 @@
 package co.tickle.network.service;
 
 import co.tickle.network.form.ResponseForm;
+import co.tickle.network.form.TicketInfoResponseForm;
+import co.tickle.network.form.TicketListResponseForm;
+import co.tickle.network.form.TradeListResponseForm;
 import retrofit2.Call;
 import retrofit2.http.Field;
 import retrofit2.http.FormUrlEncoded;
@@ -15,17 +18,19 @@ import retrofit2.http.Query;
 public interface TradeService {
 
     @GET("/trade/list")
-    Call<ResponseForm> getList(@Query("status")String status);
+    Call<TradeListResponseForm> getList(@Header("token") String token, @Query("status")String status
+                               , @Query("from_ticket") String fromTicket,
+                                        @Query("to_ticket") String toTicket);
 
     @GET("/trade/info")
-    Call<ResponseForm> getInfo(@Query("id")String id);
+    Call<TicketInfoResponseForm> getInfo(@Query("id")String id);
 
     @FormUrlEncoded
     @POST("/trade/propose")
     Call<ResponseForm> propose(@Header("token") String token,
                                     @Field("from_ticket")String fromTicket,
                                     @Field("to_ticket")String toTicket,
-                                    @Field("quantity")String quantity);
+                                    @Field("quantity")Integer quantity);
     @FormUrlEncoded
     @POST("/trade/deal")
     Call<ResponseForm> deal(@Header("token") String token,@Field("trade_id") String tradeId);
