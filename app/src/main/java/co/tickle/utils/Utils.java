@@ -134,6 +134,14 @@ public class Utils {
         }
         return null;
     }
-
+    public static String getRestTime(long time) {
+        String t = "";
+        t = String.format("%02d",time%60);
+        if(time>60)
+            t = String.format("%02d:%s",time/60%60,t);
+        if(time>3600)
+            t = String.format("%02d:%s",time/3600,t);
+        return t;
+    }
 }
 

@@ -62,14 +62,14 @@ public class ChangeTicketAdapter extends BaseRecyclerAdapter {
         Glide.with(mContext).load(fromTicket.getThumbnail()).into(h.fromThumbnailView);
         h.fromCompanyNameView.setText(fromTicket.getCompany());
         h.fromNameView.setText(fromTicket.getName());
-        h.fromQuantityView.setText(Utils.getPriceToString(fromTicket.getQuantity()* CodeDefinition.TICKLE_PRICE));
+        h.fromQuantityView.setText(Utils.getPriceToString(trade.getQuantity()* CodeDefinition.TICKLE_PRICE));
         
         // to
 
         Glide.with(mContext).load(toTicket.getThumbnail()).into(h.toThumbnailView);
         h.toCompanyNameView.setText(toTicket.getCompany());
         h.toNameView.setText(toTicket.getName());
-        h.toQuantityView.setText(Utils.getPriceToString(toTicket.getQuantity()* CodeDefinition.TICKLE_PRICE));
+        h.toQuantityView.setText(Utils.getPriceToString(trade.getQuantity()* CodeDefinition.TICKLE_PRICE));
         
     }
 

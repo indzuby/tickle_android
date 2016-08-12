@@ -43,9 +43,9 @@ public class TradeController extends BaseController {
         Call<ResponseForm> call = tradeService.propose(token,fromTicket,toTicket,quantity);
         call.enqueue(callback);
     }
-    public void getMyList(String status, String fromTicket, String toTicket, Callback<TradeListResponseForm> callback){
+    public void getMyList(String status,Callback<TradeListResponseForm> callback){
         String token = SessionUtils.getString(context, CodeDefinition.TOKEN, RestApi.TESTER1);
-        Call<TradeListResponseForm> call = tradeService.getList(token,status,fromTicket,toTicket);
+        Call<TradeListResponseForm> call = tradeService.getList(token,status,"","");
         call.enqueue(callback);
     }
     public void getList(String status, String fromTicket, String toTicket, Callback<TradeListResponseForm> callback){

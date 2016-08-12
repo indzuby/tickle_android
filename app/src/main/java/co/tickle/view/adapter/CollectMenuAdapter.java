@@ -1,9 +1,7 @@
 package co.tickle.view.adapter;
 
 import android.content.Context;
-import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
-import android.support.v4.app.FragmentStatePagerAdapter;
 import android.support.v4.app.FragmentTransaction;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -17,7 +15,7 @@ import co.tickle.utils.ResUtils;
 import co.tickle.view.common.BaseFragment;
 import co.tickle.view.collect.best.BestFragment;
 import co.tickle.view.collect.category.CategoryFragment;
-import co.tickle.view.collect.commingsoon.ComingSoonFragment;
+import co.tickle.view.collect.comingsoon.ComingSoonFragment;
 import co.tickle.view.collect.today.TodayFragment;
 
 /**

@@ -19,7 +19,7 @@
     <TextView
         android:layout_width="wrap_content"
         android:textSize="12sp"
-        android:lines="1"
+        android:singleLine="true"
         android:layout_marginTop="5dp"
         android:textColor="@color/black33"
         android:layout_marginLeft="7dp"
@@ -41,7 +41,7 @@
             android:layout_width="wrap_content"
             android:textSize="12sp"
             android:layout_marginTop="-2dp"
-            android:lines="1"
+            android:singleLine="true"
             android:textColor="@color/themePink"
             android:layout_marginLeft="5dp"
             android:textStyle="bold"

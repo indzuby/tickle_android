@@ -4,19 +4,10 @@ import android.content.Context;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentStatePagerAdapter;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.widget.TextView;
 
 import java.util.HashMap;
 import java.util.Map;
 
-import co.tickle.R;
-import co.tickle.utils.ResUtils;
-import co.tickle.view.collect.best.BestFragment;
-import co.tickle.view.collect.category.CategoryFragment;
-import co.tickle.view.collect.commingsoon.ComingSoonFragment;
-import co.tickle.view.collect.today.TodayFragment;
 import co.tickle.view.common.BaseFragment;
 import co.tickle.view.main.ChangeFragment;
 import co.tickle.view.main.CollectFragment;

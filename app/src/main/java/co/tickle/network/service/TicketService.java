@@ -21,7 +21,7 @@ public interface TicketService {
     Call<TicketInfoResponseForm> getInfo(@Query("id") String ticketId);
 
     @GET("/ticket/my/list")
-    Call<TicketListResponseForm> getMyList(@Header("token") String token);
+    Call<TicketListResponseForm> getMyList(@Header("token") String token,@Query("category") String category);
 
     @GET("/ticket/my")
     Call<TicketInfoResponseForm> getMyInfo(@Header("token") String token, @Query("id") String id);

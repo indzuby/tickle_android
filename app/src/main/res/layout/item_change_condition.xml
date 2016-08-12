@@ -28,9 +28,10 @@
                 android:src="@mipmap/thumbnail" />
 
             <LinearLayout
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="9dp"
+                android:layout_marginRight="4dp"
                 android:orientation="vertical">
 
                 <TextView
@@ -42,6 +43,7 @@
                     android:textSize="11sp" />
 
                 <TextView
+                    android:singleLine="true"
                     android:id="@+id/fromNameView"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -81,16 +83,19 @@
                 android:src="@mipmap/icon_changing" />
         </FrameLayout>
 
-        <LinearLayout
+        <RelativeLayout
             android:layout_width="0dp"
+            android:orientation="horizontal"
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:gravity="center_vertical|right"
             android:paddingRight="9dp">
 
             <LinearLayout
-                android:layout_width="wrap_content"
+                android:layout_toLeftOf="@+id/toThumbnailView"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginLeft="4dp"
                 android:layout_marginRight="9dp"
                 android:gravity="right"
                 android:orientation="vertical">
@@ -104,6 +109,7 @@
                     android:textSize="11sp" />
 
                 <TextView
+                    android:singleLine="true"
                     android:id="@+id/toNameView"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -125,10 +131,11 @@
             </LinearLayout>
 
             <ImageView
+                android:layout_alignParentRight="true"
                 android:id="@+id/toThumbnailView"
                 android:layout_width="48dp"
                 android:layout_height="48dp"
                 android:src="@mipmap/thumbnail" />
-        </LinearLayout>
+        </RelativeLayout>
     </LinearLayout>
 </LinearLayout>

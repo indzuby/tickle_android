@@ -39,9 +39,9 @@ public class TicketController extends BaseController {
         call.enqueue(callback);
 
     }
-    public void getMyList(Callback<TicketListResponseForm> callback){
+    public void getMyList(String category,Callback<TicketListResponseForm> callback){
         String token = SessionUtils.getString(context, CodeDefinition.TOKEN, RestApi.TESTER1);
-        Call<TicketListResponseForm> call = ticketService.getMyList(token);
+        Call<TicketListResponseForm> call = ticketService.getMyList(token,category);
         call.enqueue(callback);
     }
 

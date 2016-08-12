@@ -12,8 +12,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 import co.tickle.R;
+import co.tickle.utils.CodeDefinition;
 import co.tickle.utils.ResUtils;
 import co.tickle.view.adapter.MainItemTabAdapter;
+import co.tickle.view.collect.category.CategoryListFragment;
 import co.tickle.view.common.BaseFragment;
 
 /**
@@ -36,8 +38,13 @@ public class MyTicketFragment extends BaseFragment {
     }
     public List<Fragment> sampleList(){
         List<Fragment> fragments = new ArrayList<>();
-        for(int i=0;i<ResUtils.categoryTab.length;i++)
-            fragments.add(new MyTicketListFragment());
+        for(int i=0;i<ResUtils.categoryTab.length;i++) {
+            Fragment fragment  = new MyTicketListFragment();
+            Bundle bundle = new Bundle();
+            bundle.putString(CodeDefinition.CATEGORY_PARAM,ResUtils.tabParam[i]);
+            fragment.setArguments(bundle);
+            fragments.add(fragment);
+        }
         return fragments;
     }
 

@@ -47,15 +47,16 @@ public class ChangeConditionFragment extends BaseFragment {
         init();
         return mView;
     }
-    public void initData(boolean isChanging){
+    public void initData(final boolean isChanging){
         String status = "0";
         if(!isChanging) status = "1";
-        TradeController.getInstance(getContext()).getMyList(status, "", "", new Callback<TradeListResponseForm>() {
+        TradeController.getInstance(getContext()).getMyList(status,new Callback<TradeListResponseForm>() {
             @Override
             public void onResponse(Call<TradeListResponseForm> call, Response<TradeListResponseForm> response) {
                 if(response.body().getCode() == 200){
                     mTrades = response.body().getResult();
-                    adapter.notifyDataSetChanged();
+                    adapter = new ChangeTicketAdapter(getContext(),mTrades,isChanging);
+                    listView.setAdapter(adapter);
                 }
             }
 
@@ -82,8 +83,6 @@ public class ChangeConditionFragment extends BaseFragment {
     }
     public void setSort(boolean isChanging) {
         if(this.isChanging == isChanging) return;
-        adapter.setChanging(isChanging);
-        adapter.notifyDataSetChanged();
         if(isChanging) {
             mView.findViewById(R.id.changing).setSelected(true);
             mView.findViewById(R.id.changed).setSelected(false);

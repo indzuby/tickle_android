@@ -1,5 +1,7 @@
 package co.tickle.model;
 
+import com.google.gson.annotations.SerializedName;
+
 import lombok.Data;
 
 /**
@@ -8,8 +10,9 @@ import lombok.Data;
 @Data
 public class Trade extends BaseModel {
 
+    @SerializedName("to_ticket")
     Ticket toTicket;
-
+    @SerializedName("from_ticket")
     Ticket fromTicket;
 
     String proposer;

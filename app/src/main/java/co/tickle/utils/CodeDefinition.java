@@ -19,4 +19,8 @@ public class CodeDefinition {
 
 
     public final static int FIND_REQUEST_CODE = 7736;
+
+    public final static String MODE_CATEGORY = "category";
+    public final static String MODE_TODAY = "today";
+    public final static String MODE_COMINGSOON = "commingsoon";
 }

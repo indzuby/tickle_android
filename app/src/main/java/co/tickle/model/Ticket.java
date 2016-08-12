@@ -17,6 +17,7 @@ public class Ticket extends BaseModel{
     Integer discount;
     Integer quantity;
     Date expire;
+    Date opendate;
     String thumbnail;
     StoreInformation information;
     String barcode;

@@ -42,7 +42,7 @@ public class CategoryListFragment extends BaseFragment {
     }
     public void initData(){
         String category = getArguments().getString(CodeDefinition.CATEGORY_PARAM);
-        TickleController.getInstance(getContext()).getList("category",category, new Callback<TicketListResponseForm>() {
+        TickleController.getInstance(getContext()).getList(CodeDefinition.MODE_CATEGORY,category, new Callback<TicketListResponseForm>() {
             @Override
             public void onResponse(Call<TicketListResponseForm> call, Response<TicketListResponseForm> response) {
                 if(response.body().getCode() == 200) {

@@ -72,6 +72,7 @@
                     android:orientation="vertical">
 
                     <TextView
+                        android:id="@+id/quantityView"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="3,000,000"
@@ -99,6 +100,7 @@
                     android:orientation="vertical">
 
                     <TextView
+                        android:id="@+id/restTimeView"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="23:59:01"

@@ -15,6 +15,7 @@ import co.tickle.R;
 import co.tickle.model.Ticket;
 import co.tickle.network.controller.TicketController;
 import co.tickle.network.form.TicketListResponseForm;
+import co.tickle.utils.CodeDefinition;
 import co.tickle.view.adapter.InterestTicketAdapter;
 import co.tickle.view.adapter.MyCollectTicketAdapter;
 import co.tickle.view.common.BaseFragment;
@@ -37,7 +38,8 @@ public class MyTicketListFragment extends BaseFragment {
         return mView;
     }
     public void initData(){
-        TicketController.getInstance(getContext()).getMyList(new Callback<TicketListResponseForm>() {
+        String category = getArguments().getString(CodeDefinition.CATEGORY_PARAM);
+        TicketController.getInstance(getContext()).getMyList(category,new Callback<TicketListResponseForm>() {
             @Override
             public void onResponse(Call<TicketListResponseForm> call, Response<TicketListResponseForm> response) {
                 if(response.body().getCode()==200) {
