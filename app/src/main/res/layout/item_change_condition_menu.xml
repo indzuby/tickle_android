@@ -6,6 +6,7 @@
     android:elevation="1dp">
 
     <LinearLayout
+        android:layout_alignParentRight="true"
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
         android:gravity="center_vertical"
@@ -13,12 +14,26 @@
         android:paddingLeft="11dp">
 
         <ImageView
+            android:paddingLeft="9dp"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginRight="6dp"
+            android:layout_height="match_parent"
+            android:paddingRight="9dp"
+            android:src="@mipmap/icon_sort" />
+
+        <View
+            android:layout_width="1dp"
+            android:layout_height="15dp"
+            android:layout_gravity="center_vertical"
+            android:background="@color/grayBackground" />
+        <ImageView
+            android:paddingLeft="9dp"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:paddingRight="9dp"
             android:src="@mipmap/icon_sort" />
 
         <TextView
+            android:visibility="gone"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/sortCoupon" />
@@ -26,8 +41,7 @@
 
     <LinearLayout
         android:layout_width="wrap_content"
-        android:layout_height="match_parent"
-        android:layout_alignParentRight="true">
+        android:layout_height="match_parent">
 
         <TextView
             android:id="@+id/changing"
@@ -36,7 +50,7 @@
             android:gravity="center"
             android:textColor="@drawable/selector_best_menu_text"
             android:textSize="15sp"
-            android:paddingLeft="9dp"
+            android:paddingLeft="20dp"
             android:paddingRight="9dp"
             android:text="@string/changing" />
 

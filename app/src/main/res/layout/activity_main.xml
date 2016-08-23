@@ -15,7 +15,7 @@
         android:orientation="vertical">
         <android.support.design.widget.CollapsingToolbarLayout
             android:layout_width="match_parent"
-            app:layout_scrollFlags="scroll|snap|exitUntilCollapsed"
+            app:layout_scrollFlags="scroll|exitUntilCollapsed"
 
             android:layout_height="match_parent">
                 <include layout="@layout/element_main_header_button"

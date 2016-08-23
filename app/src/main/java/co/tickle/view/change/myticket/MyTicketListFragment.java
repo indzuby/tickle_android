@@ -62,6 +62,7 @@ public class MyTicketListFragment extends BaseFragment {
         listView.setAdapter(new InterestTicketAdapter(getActivity()));
         LinearLayoutManager llm = new LinearLayoutManager(getContext());
         llm.setOrientation(LinearLayoutManager.HORIZONTAL);
+        listView.setNestedScrollingEnabled(true);
         listView.setLayoutManager(llm);
 
         final RecyclerView gridView = (RecyclerView) mView.findViewById(R.id.myCollectGrid);

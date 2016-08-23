@@ -47,7 +47,7 @@ public class InterestTicketAdapter extends BaseRecyclerAdapter {
 
     @Override
     public int getItemCount() {
-        return 1;
+        return 1    ;
     }
 
     class ListItemViewHolder extends RecyclerView.ViewHolder {
