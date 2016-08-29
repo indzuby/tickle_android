@@ -1,6 +1,7 @@
 package co.tickle.view.adapter;
 
 import android.content.Context;
+import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -15,6 +16,7 @@ import java.util.List;
 import co.tickle.R;
 import co.tickle.model.Ticket;
 import co.tickle.utils.CodeDefinition;
+import co.tickle.utils.ContextUtils;
 import co.tickle.utils.Utils;
 import co.tickle.view.common.BaseRecyclerAdapter;
 import co.tickle.view.popup.CouponPopup;
@@ -36,6 +38,7 @@ public class MyCollectTicketAdapter extends BaseRecyclerAdapter {
         View itemView;
         if(viewType == LIST_VIEW_TYPE_HEADER) {
             itemView = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_have_header, parent, false);
+            return new ListHeaderViewHolder(itemView);
         }
         else itemView = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_have_ticket, parent, false);
         return new ListItemViewHolder(itemView);
@@ -51,9 +54,23 @@ public class MyCollectTicketAdapter extends BaseRecyclerAdapter {
             h.quantityView.setText(Utils.getPriceToString(ticket.getQuantity()* CodeDefinition.TICKLE_PRICE));
             h.itemView.setTag(ticket);
             h.itemView.setOnClickListener(this);
+            if(position%3 ==0 ) {
+                int padding  = ContextUtils.pxFromDp(mContext,15);
+                h.itemView.setPadding(padding,0,padding,0);
+            }
         }else {
-            TextView countView = (TextView) holder.itemView.findViewById(R.id.countView);
-            countView.setText(mTickets.size()+"");
+            ListHeaderViewHolder h = (ListHeaderViewHolder) holder;
+            h.tickleCountView.setText(mTickets.size()+"");
+            h.interestCountView.setText("0");
+            if(h.adapter == null) {
+                h.adapter =new InterestTicketAdapter(mContext);
+                h.interestListView.setAdapter(h.adapter);
+            }
+            LinearLayoutManager llm = new LinearLayoutManager(mContext);
+            llm.setOrientation(LinearLayoutManager.HORIZONTAL);
+            h.interestListView.setNestedScrollingEnabled(true);
+            h.interestListView.setLayoutManager(llm);
+
         }
     }
 
@@ -65,6 +82,20 @@ public class MyCollectTicketAdapter extends BaseRecyclerAdapter {
     @Override
     public int getItemCount() {
         return mTickets.size()+1;
+    }
+
+    class ListHeaderViewHolder extends RecyclerView.ViewHolder {
+        // ViewHolder
+        TextView tickleCountView;
+        RecyclerView interestListView;
+        TextView interestCountView;
+        InterestTicketAdapter adapter;
+        public ListHeaderViewHolder(View itemView) {
+            super(itemView);
+            tickleCountView = (TextView) itemView.findViewById(R.id.tickleCountView);
+            interestCountView = (TextView) itemView.findViewById(R.id.interestCountView);
+            interestListView= (RecyclerView) itemView.findViewById(R.id.interestListView);
+        }
     }
 
     class ListItemViewHolder extends RecyclerView.ViewHolder {

@@ -56,15 +56,6 @@ public class MyTicketListFragment extends BaseFragment {
     }
     public void init(){
         super.init();
-        TextView interestCountView = (TextView) mView.findViewById(R.id.interestCountView);
-        interestCountView.setText("0");
-        RecyclerView listView = (RecyclerView) mView.findViewById(R.id.interestListView);
-        listView.setAdapter(new InterestTicketAdapter(getActivity()));
-        LinearLayoutManager llm = new LinearLayoutManager(getContext());
-        llm.setOrientation(LinearLayoutManager.HORIZONTAL);
-        listView.setNestedScrollingEnabled(true);
-        listView.setLayoutManager(llm);
-
         final RecyclerView gridView = (RecyclerView) mView.findViewById(R.id.myCollectGrid);
         glm = new GridLayoutManager(getContext(),3);
         glm.setSpanSizeLookup(new GridLayoutManager.SpanSizeLookup() {

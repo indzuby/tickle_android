@@ -1,12 +1,15 @@
 package co.tickle.view.adapter;
 
 import android.content.Context;
+import android.content.DialogInterface;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.util.Util;
@@ -19,6 +22,7 @@ import co.tickle.model.Trade;
 import co.tickle.utils.CodeDefinition;
 import co.tickle.utils.Utils;
 import co.tickle.view.common.BaseRecyclerAdapter;
+import lombok.Getter;
 import lombok.Setter;
 
 /**
@@ -27,8 +31,10 @@ import lombok.Setter;
 public class ChangeTicketAdapter extends BaseRecyclerAdapter {
 
     Context mContext;
-    @Setter
+    @Setter @Getter
     boolean isChanging;
+    @Setter @Getter
+    boolean isRemove = false;
 
     List<Trade> mTrades;
 
@@ -53,7 +59,13 @@ public class ChangeTicketAdapter extends BaseRecyclerAdapter {
         else
             h.iconCondition.setImageResource(R.mipmap.icon_changing_complete);
 
+        if(isRemove)
+            h.removeButton.setVisibility(View.VISIBLE);
+        else
+            h.removeButton.setVisibility(View.GONE);
+
         Trade trade = mTrades.get(position);
+
 
         Ticket fromTicket = trade.getFromTicket();
         Ticket toTicket = trade.getToTicket();
@@ -70,6 +82,9 @@ public class ChangeTicketAdapter extends BaseRecyclerAdapter {
         h.toCompanyNameView.setText(toTicket.getCompany());
         h.toNameView.setText(toTicket.getName());
         h.toQuantityView.setText(Utils.getPriceToString(trade.getQuantity()* CodeDefinition.TICKLE_PRICE));
+
+        h.removeButton.setTag(position);
+        h.removeButton.setOnClickListener(this);
         
     }
 
@@ -94,6 +109,8 @@ public class ChangeTicketAdapter extends BaseRecyclerAdapter {
         TextView toQuantityView;
         
         ImageView iconCondition;
+
+        ImageView removeButton;
         
         
         public ListItemViewHolder(View v) {
@@ -110,11 +127,38 @@ public class ChangeTicketAdapter extends BaseRecyclerAdapter {
             toCompanyNameView = (TextView) v.findViewById(R.id.toCompanyNameView);
             toNameView = (TextView) v.findViewById(R.id.toNameView);
             toQuantityView = (TextView) v.findViewById(R.id.toQuantityView);
+
+            removeButton = (ImageView) v.findViewById(R.id.removeButton);
         }
     }
 
     @Override
     public void onClick(View v) {
+        if(v.getId() == R.id.removeButton) {
 
+            final int position = (Integer) v.getTag();
+
+            AlertDialog.Builder alertDlg = new AlertDialog.Builder(mContext);
+
+            alertDlg.setMessage("교환을 취소하시겠습니까?");
+            alertDlg.setPositiveButton(mContext.getString(R.string.confirm), new DialogInterface.OnClickListener() { // 확인 버튼
+                @Override
+                public void onClick(DialogInterface dialog, int whichButton) {
+                    Toast.makeText(mContext,"취소되었습니다.",Toast.LENGTH_SHORT).show();
+                    mTrades.remove(position);
+                    notifyDataSetChanged();
+
+                }
+            });
+            alertDlg.setNegativeButton(mContext.getString(R.string.cancel), new DialogInterface.OnClickListener() { // 취소 버튼
+                @Override
+                public void onClick(DialogInterface dialog, int whichButton) {
+
+                    dialog.cancel();
+                }
+            });
+            AlertDialog alert = alertDlg.create();
+            alert.show();
+        }
     }
 }

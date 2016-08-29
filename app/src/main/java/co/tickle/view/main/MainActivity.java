@@ -2,11 +2,15 @@ package co.tickle.view.main;
 
 import android.os.Build;
 import android.os.Bundle;
+import android.support.design.widget.AppBarLayout;
+import android.support.design.widget.CollapsingToolbarLayout;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v4.content.ContextCompat;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.ActionBar;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
@@ -25,24 +29,25 @@ import co.tickle.view.popup.AccountPopup;
 
 public class MainActivity extends BaseActivity {
 
-    SwipeDisableViewPager viewPager;
-    MainMenuAdapter mainAdapter;
+    CollapsingToolbarLayout collapsingLayout;
+    AppBarLayout appBarLayout;
     int nowPosition=-1;
     boolean isInit = false;
     @Override
     public void onClick(View v) {
 
         super.onClick(v);
-        if(v.getId() == R.id.headerCollectButton) {
+        if(v.getId() == R.id.headerCollectButton || v.getId() == R.id.headerCollectButtonSmall) {
             selectedTab(0);
-        }else if(v.getId() == R.id.headerChangeButton) {
+        }else if(v.getId() == R.id.headerChangeButton || v.getId() == R.id.headerChangeButtonSmall) {
 
             token = SessionUtils.getString(this, CodeDefinition.TOKEN,"");
             if(token== null || token.length()<=0) {
                 Toast.makeText(this, "로그인이 필요합니다.", Toast.LENGTH_SHORT).show();
                 new AccountPopup(this).show();
-            }else
+            }else{
                 selectedTab(1);
+            }
         }
     }
 
@@ -61,6 +66,23 @@ public class MainActivity extends BaseActivity {
         isInit = true;
         findViewById(R.id.headerChangeButton).setOnClickListener(this);
         findViewById(R.id.headerCollectButton).setOnClickListener(this);
+        findViewById(R.id.headerChangeButtonSmall).setOnClickListener(this);
+        findViewById(R.id.headerCollectButtonSmall).setOnClickListener(this);
+        collapsingLayout = (CollapsingToolbarLayout) findViewById(R.id.collapsingLayout);
+        appBarLayout = (AppBarLayout) findViewById(R.id.appBarLayout);
+        appBarLayout.addOnOffsetChangedListener(new AppBarLayout.OnOffsetChangedListener() {
+            @Override
+            public void onOffsetChanged(AppBarLayout appBarLayout, int verticalOffset) {
+                if(verticalOffset <=-350) {
+                    findViewById(R.id.bigButtonLayout).setVisibility(View.GONE);
+                    findViewById(R.id.smallButtonLayout).setVisibility(View.VISIBLE);
+                }else {
+                    findViewById(R.id.bigButtonLayout).setVisibility(View.VISIBLE);
+                    findViewById(R.id.smallButtonLayout).setVisibility(View.GONE);
+
+                }
+            }
+        });
     }
     public void selectedTab(int position){
         if(position == nowPosition) return;
@@ -80,6 +102,10 @@ public class MainActivity extends BaseActivity {
             findViewById(R.id.headerChangeIcon).setAlpha(0.5f);
             findViewById(R.id.headerChangeText).setAlpha(0.5f);
             findViewById(R.id.headerSelectOval).setSelected(false);
+
+            findViewById(R.id.headerCollectIconSmall).setAlpha(1f);
+            findViewById(R.id.headerChangeIconSmall).setAlpha(0.5f);
+            findViewById(R.id.headerSelectOvalSmall).setSelected(false);
         }else {
             fragment = new ChangeFragment();
             if(isInit)ft.setCustomAnimations(R.anim.enter_from_right, R.anim.exit_to_left, R.anim.enter_from_left, R.anim.exit_to_right);
@@ -90,6 +116,10 @@ public class MainActivity extends BaseActivity {
             findViewById(R.id.headerChangeIcon).setAlpha(1f);
             findViewById(R.id.headerChangeText).setAlpha(1f);
             findViewById(R.id.headerSelectOval).setSelected(true);
+
+            findViewById(R.id.headerCollectIconSmall).setAlpha(0.5f);
+            findViewById(R.id.headerChangeIconSmall).setAlpha(1f);
+            findViewById(R.id.headerSelectOvalSmall).setSelected(true);
         }
         if (Build.VERSION.SDK_INT>=21) {
             window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);

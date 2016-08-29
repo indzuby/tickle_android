@@ -1,3 +1,131 @@
 <?xml version="1.0" encoding="utf-8"?>
-<items version="2" />
+<items version="2" >
 
+    <item
+        jar="C:\Users\rlawn\.gradle\caches\modules-2\files-2.1\com.squareup.okio\okio\1.8.0\5ea7af56cc7c567ed9856d99efb30740e9b17ff\okio-1.8.0.jar"
+        jumboMode="false"
+        revision="23.0.3"
+        sha1="05ea7af56cc7c567ed9856d99efb30740e9b17ff">
+        <dex dex="D:\dev\tickle-android\app\build\intermediates\pre-dexed\debug\okio-1.8.0_bb76d65d0cf6b1596131322a91912ebde1e476f4.jar" />
+    </item>
+    <item
+        jar="D:\dev\tickle-android\app\build\intermediates\exploded-aar\com.android.support\design\23.1.1\jars\classes.jar"
+        jumboMode="false"
+        revision="23.0.3"
+        sha1="379471b2bd17d9737c050345c08e8c7d16589784">
+        <dex dex="D:\dev\tickle-android\app\build\intermediates\pre-dexed\debug\com.android.support-design-23.1.1_0f75802542cf41ed846546912d878dc3134827d7.jar" />
+    </item>
+    <item
+        jar="C:\Users\rlawn\.gradle\caches\modules-2\files-2.1\com.github.bumptech.glide\glide\3.6.1\86b122e640af09b0723e1fa44083c354ba6d9089\glide-3.6.1.jar"
+        jumboMode="false"
+        revision="23.0.3"
+        sha1="86b122e640af09b0723e1fa44083c354ba6d9089">
+        <dex dex="D:\dev\tickle-android\app\build\intermediates\pre-dexed\debug\glide-3.6.1_e059f66d453e0c25b202ab3d29bf1c71fe5bb3f1.jar" />
+    </item>
+    <item
+        jar="C:\Users\rlawn\.gradle\caches\modules-2\files-2.1\com.google.code.gson\gson\2.7\751f548c85fa49f330cecbb1875893f971b33c4e\gson-2.7.jar"
+        jumboMode="false"
+        revision="23.0.3"
+        sha1="751f548c85fa49f330cecbb1875893f971b33c4e">
+        <dex dex="D:\dev\tickle-android\app\build\intermediates\pre-dexed\debug\gson-2.7_fbd5d9865badb71e1bfe83e5afdea9a4c47aea22.jar" />
+    </item>
+    <item
+        jar="C:\Users\rlawn\.gradle\caches\modules-2\files-2.1\com.j256.ormlite\ormlite-core\4.48\e579bd2905d0399af5029aaaf9817d5fa0ca88a5\ormlite-core-4.48.jar"
+        jumboMode="false"
+        revision="23.0.3"
+        sha1="e579bd2905d0399af5029aaaf9817d5fa0ca88a5">
+        <dex dex="D:\dev\tickle-android\app\build\intermediates\pre-dexed\debug\ormlite-core-4.48_7550bcdd6e4e2a9d067de6bf000f1a43ce73d588.jar" />
+    </item>
+    <item
+        jar="D:\dev\tickle-android\app\build\intermediates\exploded-aar\com.android.support\support-v4\23.1.1\jars\libs\internal_impl-23.1.1.jar"
+        jumboMode="false"
+        revision="23.0.3"
+        sha1="a4de9c81ae239414e1ed0f86441b02abaf29bca9">
+        <dex dex="D:\dev\tickle-android\app\build\intermediates\pre-dexed\debug\internal_impl-23.1.1_e7d71d46b521c762ad8ab991f3305a8d63e68b41.jar" />
+    </item>
+    <item
+        jar="D:\dev\tickle-android\app\build\intermediates\exploded-aar\com.android.support\support-v4\23.1.1\jars\classes.jar"
+        jumboMode="false"
+        revision="23.0.3"
+        sha1="6cbc7773921fcfedbe55657578f0cbfe614778dc">
+        <dex dex="D:\dev\tickle-android\app\build\intermediates\pre-dexed\debug\com.android.support-support-v4-23.1.1_9d6039b0c7fa22e30024f44a11fa7a8d7c4befc9.jar" />
+    </item>
+    <item
+        jar="C:\Users\rlawn\.gradle\caches\modules-2\files-2.1\com.google.zxing\core\3.0.1\9ebf6cd580d67601fbf88fd007aab4703b19e4c2\core-3.0.1.jar"
+        jumboMode="false"
+        revision="23.0.3"
+        sha1="9ebf6cd580d67601fbf88fd007aab4703b19e4c2">
+        <dex dex="D:\dev\tickle-android\app\build\intermediates\pre-dexed\debug\core-3.0.1_0c61915c7502a43de64e7d405f442170b45a8b49.jar" />
+    </item>
+    <item
+        jar="D:\dev\tickle-android\app\build\intermediates\exploded-aar\com.android.support\appcompat-v7\23.1.1\jars\classes.jar"
+        jumboMode="false"
+        revision="23.0.3"
+        sha1="5c5699834e9722f1c288fea2de82725d078ba127">
+        <dex dex="D:\dev\tickle-android\app\build\intermediates\pre-dexed\debug\com.android.support-appcompat-v7-23.1.1_cc5991b88d269ee4c9b14df0420edafb422fa040.jar" />
+    </item>
+    <item
+        jar="C:\Users\rlawn\.gradle\caches\modules-2\files-2.1\com.squareup.retrofit2\retrofit\2.1.0\2de7cd8b95b7021b1d597f049bcb422055119f2c\retrofit-2.1.0.jar"
+        jumboMode="false"
+        revision="23.0.3"
+        sha1="2de7cd8b95b7021b1d597f049bcb422055119f2c">
+        <dex dex="D:\dev\tickle-android\app\build\intermediates\pre-dexed\debug\retrofit-2.1.0_0276316fce190c728fb5d5a4f5b950d58211675f.jar" />
+    </item>
+    <item
+        jar="C:\Users\rlawn\.gradle\caches\modules-2\files-2.1\com.squareup.okhttp3\okhttp\3.3.0\2b802460eea20f8f2ad9c08c74e0f14718e88aa9\okhttp-3.3.0.jar"
+        jumboMode="false"
+        revision="23.0.3"
+        sha1="2b802460eea20f8f2ad9c08c74e0f14718e88aa9">
+        <dex dex="D:\dev\tickle-android\app\build\intermediates\pre-dexed\debug\okhttp-3.3.0_5a7b73aa89f3fb41778f1393d2b87c37f7d38675.jar" />
+    </item>
+    <item
+        jar="C:\Users\rlawn\.gradle\caches\modules-2\files-2.1\com.squareup.retrofit2\converter-gson\2.1.0\aa557d71ead91cbf26e0c316a0f593d168303309\converter-gson-2.1.0.jar"
+        jumboMode="false"
+        revision="23.0.3"
+        sha1="aa557d71ead91cbf26e0c316a0f593d168303309">
+        <dex dex="D:\dev\tickle-android\app\build\intermediates\pre-dexed\debug\converter-gson-2.1.0_f3d01526d264df921fba21cff2985a8663bbde7c.jar" />
+    </item>
+    <item
+        jar="C:\Users\rlawn\.gradle\caches\modules-2\files-2.1\org.modelmapper\modelmapper\0.7.6\401382b5df8a6c5e4543436d295f045ff8251df9\modelmapper-0.7.6.jar"
+        jumboMode="false"
+        revision="23.0.3"
+        sha1="401382b5df8a6c5e4543436d295f045ff8251df9">
+        <dex dex="D:\dev\tickle-android\app\build\intermediates\pre-dexed\debug\modelmapper-0.7.6_030917cd5d71b85e4e08a171705a687a30fc4d8e.jar" />
+    </item>
+    <item
+        jar="C:\Users\rlawn\.gradle\caches\modules-2\files-2.1\joda-time\joda-time\2.9.1\c261495d1e01df849cdb3cbc941564018f0d3539\joda-time-2.9.1.jar"
+        jumboMode="false"
+        revision="23.0.3"
+        sha1="c261495d1e01df849cdb3cbc941564018f0d3539">
+        <dex dex="D:\dev\tickle-android\app\build\intermediates\pre-dexed\debug\joda-time-2.9.1_a1b8b2e73be4fce5e680dce15eb919db8e7d4442.jar" />
+    </item>
+    <item
+        jar="D:\dev\tickle-android\app\build\intermediates\exploded-aar\com.android.support\recyclerview-v7\23.1.1\jars\classes.jar"
+        jumboMode="false"
+        revision="23.0.3"
+        sha1="09c5e804bc67fc0580360043dff067df574a60d4">
+        <dex dex="D:\dev\tickle-android\app\build\intermediates\pre-dexed\debug\com.android.support-recyclerview-v7-23.1.1_bdeab7da597c06f8ab600ca6f21330e6a51a7562.jar" />
+    </item>
+    <item
+        jar="D:\dev\tickle-android\app\build\intermediates\exploded-aar\com.tsengvn\Typekit\1.0.0\jars\classes.jar"
+        jumboMode="false"
+        revision="23.0.3"
+        sha1="bbf90181fea46399a9e3d0f4326883a505f71952">
+        <dex dex="D:\dev\tickle-android\app\build\intermediates\pre-dexed\debug\com.tsengvn-Typekit-1.0.0_74a98a20c2642be171b2be7751aa96dc58dc3a00.jar" />
+    </item>
+    <item
+        jar="C:\Users\rlawn\AppData\Local\Android\sdk\extras\android\m2repository\com\android\support\support-annotations\23.1.1\support-annotations-23.1.1.jar"
+        jumboMode="false"
+        revision="23.0.3"
+        sha1="8d680ba5a623724d1fb0e81c36a790f023a6cede">
+        <dex dex="D:\dev\tickle-android\app\build\intermediates\pre-dexed\debug\support-annotations-23.1.1_f583d29315f8a932c2e22eeec21e1e19664c496b.jar" />
+    </item>
+    <item
+        jar="C:\Users\rlawn\.gradle\caches\modules-2\files-2.1\com.j256.ormlite\ormlite-android\4.48\afa06f539a4026c10b247386312aa67404b80a16\ormlite-android-4.48.jar"
+        jumboMode="false"
+        revision="23.0.3"
+        sha1="afa06f539a4026c10b247386312aa67404b80a16">
+        <dex dex="D:\dev\tickle-android\app\build\intermediates\pre-dexed\debug\ormlite-android-4.48_4618884de6bed26b4be4954bc0d78a0497f0b71a.jar" />
+    </item>
+
+</items>

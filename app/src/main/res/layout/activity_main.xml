@@ -11,10 +11,13 @@
     <android.support.design.widget.AppBarLayout
         android:layout_width="match_parent"
         android:layout_height="176dp"
+        android:id="@+id/appBarLayout"
         android:elevation="0dp"
         android:orientation="vertical">
         <android.support.design.widget.CollapsingToolbarLayout
             android:layout_width="match_parent"
+            android:id="@+id/collapsingLayout"
+            android:minHeight="56dp"
             app:layout_scrollFlags="scroll|exitUntilCollapsed"
 
             android:layout_height="match_parent">

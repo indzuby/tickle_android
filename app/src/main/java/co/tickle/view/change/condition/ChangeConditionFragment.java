@@ -3,6 +3,7 @@ package co.tickle.view.change.condition;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -39,6 +40,10 @@ public class ChangeConditionFragment extends BaseFragment {
             setSort(true);
         else if(v.getId() == R.id.changed)
             setSort(false);
+        else if(v.getId() == R.id.cancelButton) {
+            adapter.setRemove(!adapter.isRemove());
+            adapter.notifyDataSetChanged();
+        }
     }
 
     @Override
@@ -79,6 +84,7 @@ public class ChangeConditionFragment extends BaseFragment {
 
         mView.findViewById(R.id.changing).setOnClickListener(this);
         mView.findViewById(R.id.changed).setOnClickListener(this);
+        mView.findViewById(R.id.cancelButton).setOnClickListener(this);
         initData(isChanging);
     }
     public void setSort(boolean isChanging) {
@@ -86,9 +92,11 @@ public class ChangeConditionFragment extends BaseFragment {
         if(isChanging) {
             mView.findViewById(R.id.changing).setSelected(true);
             mView.findViewById(R.id.changed).setSelected(false);
+            mView.findViewById(R.id.cancelButton).setVisibility(View.VISIBLE);
         }else {
             mView.findViewById(R.id.changing).setSelected(false);
             mView.findViewById(R.id.changed).setSelected(true);
+            mView.findViewById(R.id.cancelButton).setVisibility(View.GONE);
         }
         initData(isChanging);
         llm.scrollToPositionWithOffset(0, 0);
