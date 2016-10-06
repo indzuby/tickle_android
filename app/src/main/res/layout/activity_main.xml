@@ -18,7 +18,7 @@
             android:layout_width="match_parent"
             android:id="@+id/collapsingLayout"
             android:minHeight="56dp"
-            app:layout_scrollFlags="scroll|exitUntilCollapsed"
+            app:layout_scrollFlags="scroll|exitUntilCollapsed|snap"
 
             android:layout_height="match_parent">
                 <include layout="@layout/element_main_header_button"
