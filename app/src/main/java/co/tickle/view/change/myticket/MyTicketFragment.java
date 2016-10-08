@@ -15,7 +15,6 @@ import co.tickle.R;
 import co.tickle.utils.CodeDefinition;
 import co.tickle.utils.ResUtils;
 import co.tickle.view.adapter.MainItemTabAdapter;
-import co.tickle.view.collect.category.CategoryListFragment;
 import co.tickle.view.common.BaseFragment;
 
 /**

@@ -3,6 +3,7 @@ package co.tickle.network.controller;
 import android.content.Context;
 
 import co.tickle.network.RestApi;
+import co.tickle.network.form.ProposeResponseForm;
 import co.tickle.network.form.ResponseForm;
 import co.tickle.network.form.TicketListResponseForm;
 import co.tickle.network.form.TradeListResponseForm;
@@ -38,9 +39,9 @@ public class TradeController extends BaseController {
             tradeService = retrofit.create(TradeService.class);
     }
 
-    public void propose(String fromTicket, String toTicket, int quantity, Callback<ResponseForm> callback){
+    public void propose(String fromTicket, String toTicket, int quantity, Callback<ProposeResponseForm> callback){
         String token = SessionUtils.getString(context, CodeDefinition.TOKEN, RestApi.TESTER1);
-        Call<ResponseForm> call = tradeService.propose(token,fromTicket,toTicket,quantity);
+        Call<ProposeResponseForm> call = tradeService.propose(token,fromTicket,toTicket,quantity);
         call.enqueue(callback);
     }
     public void getMyList(String status,Callback<TradeListResponseForm> callback){
@@ -50,6 +51,11 @@ public class TradeController extends BaseController {
     }
     public void getList(String status, String fromTicket, String toTicket, Callback<TradeListResponseForm> callback){
         Call<TradeListResponseForm> call = tradeService.getList("",status,fromTicket,toTicket);
+        call.enqueue(callback);
+    }
+    public void cancel(String tradeId,Callback<ResponseForm> callback) {
+        String token = SessionUtils.getString(context, CodeDefinition.TOKEN, RestApi.TESTER1);
+        Call<ResponseForm> call = tradeService.cancel(token,tradeId);
         call.enqueue(callback);
     }
 }

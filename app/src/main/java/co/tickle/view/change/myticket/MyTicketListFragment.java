@@ -2,12 +2,10 @@ package co.tickle.view.change.myticket;
 
 import android.os.Bundle;
 import android.support.v7.widget.GridLayoutManager;
-import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.TextView;
 
 import java.util.List;
 
@@ -16,7 +14,6 @@ import co.tickle.model.Ticket;
 import co.tickle.network.controller.TicketController;
 import co.tickle.network.form.TicketListResponseForm;
 import co.tickle.utils.CodeDefinition;
-import co.tickle.view.adapter.InterestTicketAdapter;
 import co.tickle.view.adapter.MyCollectTicketAdapter;
 import co.tickle.view.common.BaseFragment;
 import retrofit2.Call;
@@ -31,6 +28,7 @@ public class MyTicketListFragment extends BaseFragment {
     GridLayoutManager glm;
 
     List<Ticket> mTickets;
+    List<Ticket> mFavoriteTickets;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         mView =  inflater.inflate(R.layout.fragment_myticket,container,false);
@@ -39,11 +37,28 @@ public class MyTicketListFragment extends BaseFragment {
     }
     public void initData(){
         String category = getArguments().getString(CodeDefinition.CATEGORY_PARAM);
-        TicketController.getInstance(getContext()).getMyList(category,new Callback<TicketListResponseForm>() {
+        TicketController.getInstance(getContext()).getMyList(category,false,new Callback<TicketListResponseForm>() {
             @Override
             public void onResponse(Call<TicketListResponseForm> call, Response<TicketListResponseForm> response) {
                 if(response.body().getCode()==200) {
                     mTickets = response.body().getResult();
+                    initDataFavorite();
+                }
+            }
+
+            @Override
+            public void onFailure(Call<TicketListResponseForm> call, Throwable t) {
+
+            }
+        });
+    }
+    public void initDataFavorite(){
+        String category = getArguments().getString(CodeDefinition.CATEGORY_PARAM);
+        TicketController.getInstance(getContext()).getMyList(category,true,new Callback<TicketListResponseForm>() {
+            @Override
+            public void onResponse(Call<TicketListResponseForm> call, Response<TicketListResponseForm> response) {
+                if(response.body().getCode()==200) {
+                    mFavoriteTickets = response.body().getResult();
                     init();
                 }
             }
@@ -68,8 +83,7 @@ public class MyTicketListFragment extends BaseFragment {
         });
         gridView.setLayoutManager(glm);
         gridView.setHasFixedSize(true);
-        adapter = new MyCollectTicketAdapter(getActivity(),mTickets);
+        adapter = new MyCollectTicketAdapter(getActivity(),mTickets,mFavoriteTickets);
         gridView.setAdapter(adapter);
-
     }
 }

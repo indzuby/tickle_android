@@ -21,4 +21,11 @@ public class Ticket extends BaseModel{
     String thumbnail;
     StoreInformation information;
     String barcode;
+    Integer status;
+    Boolean favorite = false;
+
+    public boolean isFavorite(){
+        if(favorite==null || !favorite) return false;
+        return true;
+    }
 }

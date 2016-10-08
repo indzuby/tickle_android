@@ -3,7 +3,6 @@ package co.tickle.view.change.condition;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -14,14 +13,12 @@ import java.util.List;
 import co.tickle.R;
 import co.tickle.model.Trade;
 import co.tickle.network.controller.TradeController;
-import co.tickle.network.form.TicketListResponseForm;
 import co.tickle.network.form.TradeListResponseForm;
 import co.tickle.view.adapter.ChangeTicketAdapter;
 import co.tickle.view.common.BaseFragment;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
-import retrofit2.http.POST;
 
 /**
  * Created by zuby on 2016-07-06.

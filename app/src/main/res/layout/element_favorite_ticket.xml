@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/lightGrayBackground"
+    android:orientation="vertical"
+    android:paddingBottom="12dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:paddingBottom="10dp"
+        android:paddingLeft="15dp"
+        android:paddingTop="8dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/favoriteTickle"
+            android:textColor="@color/black33" />
+
+        <TextView
+            android:id="@+id/favoriteCountView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="4dp"
+            android:text="35"
+            android:textColor="@color/themePink" />
+    </LinearLayout>
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/favoriteListView"
+        android:visibility="gone"
+        android:layout_width="match_parent"
+        android:layout_height="174dp">
+    </android.support.v7.widget.RecyclerView>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="146dp">
+        <LinearLayout
+            android:weightSum="3"
+            android:orientation="horizontal"
+            android:id="@+id/favoriteLayout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+        </LinearLayout>
+        <ImageView
+            android:id="@+id/before"
+            android:paddingLeft="8dp"
+            android:layout_width="wrap_content"
+            android:src="@mipmap/icon_before"
+            android:layout_height="match_parent" />
+        <ImageView
+            android:id="@+id/next"
+            android:paddingRight="8dp"
+            android:layout_alignParentRight="true"
+            android:layout_width="wrap_content"
+            android:src="@mipmap/icon_next"
+            android:layout_height="match_parent" />
+    </RelativeLayout>
+
+</LinearLayout>

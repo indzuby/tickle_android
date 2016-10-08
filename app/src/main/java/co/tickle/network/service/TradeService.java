@@ -1,5 +1,6 @@
 package co.tickle.network.service;
 
+import co.tickle.network.form.ProposeResponseForm;
 import co.tickle.network.form.ResponseForm;
 import co.tickle.network.form.TicketInfoResponseForm;
 import co.tickle.network.form.TicketListResponseForm;
@@ -27,12 +28,15 @@ public interface TradeService {
 
     @FormUrlEncoded
     @POST("/trade/propose")
-    Call<ResponseForm> propose(@Header("token") String token,
-                                    @Field("from_ticket")String fromTicket,
-                                    @Field("to_ticket")String toTicket,
-                                    @Field("quantity")Integer quantity);
+    Call<ProposeResponseForm> propose(@Header("token") String token,
+                                      @Field("from_ticket")String fromTicket,
+                                      @Field("to_ticket")String toTicket,
+                                      @Field("quantity")Integer quantity);
     @FormUrlEncoded
     @POST("/trade/deal")
     Call<ResponseForm> deal(@Header("token") String token,@Field("trade_id") String tradeId);
 
+    @FormUrlEncoded
+    @POST("/trade/cancel")
+    Call<ResponseForm> cancel(@Header("token") String token,@Field("trade_id") String tradeId);
 }

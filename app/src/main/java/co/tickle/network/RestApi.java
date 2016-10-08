@@ -18,7 +18,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
 public class RestApi {
 
 
-    public final static String url = "http://182.252.177.154:3000";
+    public final static String url_v1 = "http://182.252.177.154:3000/";
 
     public final static String TESTER1 = "57ab5d8341ba5ffea20d6f19";
     public final static String TESTER2 = "57ab5d9041ba5ffea20d6f1a";
@@ -39,7 +39,7 @@ public class RestApi {
 
         Gson gson = builder.create();
         retrofit = new Retrofit.Builder()
-                .baseUrl(url)
+                .baseUrl(url_v1)
                 .addConverterFactory(GsonConverterFactory.create(gson))
                 .build();
     }

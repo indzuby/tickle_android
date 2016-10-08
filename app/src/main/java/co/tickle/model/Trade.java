@@ -19,6 +19,9 @@ public class Trade extends BaseModel {
 
     Integer quantity;
 
+    @SerializedName("org_quantity")
+    Integer orgQuantity;
+
     String status;
 
 }
