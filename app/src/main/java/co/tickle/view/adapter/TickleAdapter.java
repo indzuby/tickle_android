@@ -48,6 +48,10 @@ public class TickleAdapter extends BaseRecyclerAdapter {
 
         h.itemView.findViewById(R.id.tickleSelectLayout).setTag(ticket);
         h.itemView.findViewById(R.id.tickleSelectLayout).setOnClickListener(listener);
+
+        h.itemView.findViewById(R.id.tickleInfoLayout).setTag(ticket);
+        h.itemView.findViewById(R.id.tickleInfoLayout).setOnClickListener(listener);
+
         Glide.with(mContext).load(ticket.getThumbnail()).into(h.thumbnailView);
         h.companyNameView.setText(ticket.getCompany());
         h.nameView.setText(ticket.getName());

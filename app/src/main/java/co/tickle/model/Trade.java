@@ -2,6 +2,8 @@ package co.tickle.model;
 
 import com.google.gson.annotations.SerializedName;
 
+import java.util.Date;
+
 import lombok.Data;
 
 /**
@@ -23,5 +25,8 @@ public class Trade extends BaseModel {
     Integer orgQuantity;
 
     String status;
+
+    @SerializedName("datetime")
+    Date dateTime;
 
 }

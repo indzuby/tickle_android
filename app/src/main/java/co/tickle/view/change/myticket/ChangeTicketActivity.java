@@ -1,8 +1,10 @@
 package co.tickle.view.change.myticket;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.content.ContextCompat;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -11,7 +13,6 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
-import android.widget.ListView;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -28,12 +29,11 @@ import co.tickle.model.Trade;
 import co.tickle.network.controller.TicketController;
 import co.tickle.network.controller.TradeController;
 import co.tickle.network.form.ProposeResponseForm;
-import co.tickle.network.form.ResponseForm;
 import co.tickle.network.form.TicketInfoResponseForm;
-import co.tickle.network.form.TradeListResponseForm;
+import co.tickle.network.form.TradeInfoResponseForm;
 import co.tickle.utils.CodeDefinition;
 import co.tickle.utils.Utils;
-import co.tickle.view.adapter.ChangeTicketAdapter;
+import co.tickle.view.adapter.ConditionTicketAdapter;
 import co.tickle.view.common.BaseActivity;
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -44,10 +44,11 @@ import retrofit2.Response;
  */
 public class ChangeTicketActivity extends BaseActivity {
     int mQuantity;
-    int mQuantityPosition;
+    int mQuantityPosition=-1;
     Ticket fromTicket;
     Ticket toTicket;
     List<Quantity> quantities;
+    boolean canTrade = false;
 
     @Override
     public void onClick(View v) {
@@ -65,30 +66,58 @@ public class ChangeTicketActivity extends BaseActivity {
     }
 
     public void suggestTicket() {
-        TradeController.getInstance(this).propose(fromTicket.getTicket_id(), toTicket.get_id(), mQuantity, new Callback<ProposeResponseForm>() {
+        AlertDialog.Builder alertDlg = new AlertDialog.Builder(this);
+        if(canTrade)
+            alertDlg.setMessage("즉시 교환하시겠습니까?");
+        else
+            alertDlg.setMessage("제안하시겠습니까?");
+        alertDlg.setPositiveButton("예", new DialogInterface.OnClickListener() { // 확인 버튼
             @Override
-            public void onResponse(Call<ProposeResponseForm> call, Response<ProposeResponseForm> response) {
-                if (response.body().getCode() == 200) {
-                    if (response.body().getResult())
-                        Toast.makeText(ChangeTicketActivity.this, "교환되었습니다.", Toast.LENGTH_SHORT).show();
-                    else
-                        Toast.makeText(ChangeTicketActivity.this, "제안하였습니다", Toast.LENGTH_SHORT).show();
-                    finish();
-                }
-            }
+            public void onClick(DialogInterface dialog, int whichButton) {
+                TradeController.getInstance(getBaseContext()).propose(fromTicket.getTicket_id(), toTicket.get_id(), mQuantity, new Callback<ProposeResponseForm>() {
+                    @Override
+                    public void onResponse(Call<ProposeResponseForm> call, Response<ProposeResponseForm> response) {
+                        if (response.body().getCode() == 200) {
+                            if (response.body().getResult())
+                                Toast.makeText(ChangeTicketActivity.this, "교환되었습니다.", Toast.LENGTH_SHORT).show();
+                            else
+                                Toast.makeText(ChangeTicketActivity.this, "제안하였습니다", Toast.LENGTH_SHORT).show();
+                            sendBroadcast(new Intent(CodeDefinition.FAVORITE_TICKLE_BROADCAST));
+                            finish();
+                        }
+                    }
 
-            @Override
-            public void onFailure(Call<ProposeResponseForm> call, Throwable t) {
-                t.printStackTrace();
+                    @Override
+                    public void onFailure(Call<ProposeResponseForm> call, Throwable t) {
+                        t.printStackTrace();
+                    }
+                });
             }
         });
+        alertDlg.setNegativeButton("아니요", new DialogInterface.OnClickListener() { // 취소 버튼
+            @Override
+            public void onClick(DialogInterface dialog, int whichButton) {
+
+                dialog.cancel();
+            }
+        });
+        AlertDialog alert = alertDlg.create();
+        alert.show();
     }
 
     public void initSuggestLayout(List<Trade> tickets) {
         findViewById(R.id.suggestMsgLayout).setVisibility(View.GONE);
+        if (tickets.size() > 0) {
+            canTrade = true;
+            ((TextView) findViewById(R.id.suggestButton)).setText("즉시교환가능");
+        }
+        else {
+            canTrade = false;
+            ((TextView) findViewById(R.id.suggestButton)).setText("제안하기");
+        }
         RecyclerView suggestView = (RecyclerView) findViewById(R.id.suggestListView);
         suggestView.setVisibility(View.VISIBLE);
-        ChangeTicketAdapter adapter = new ChangeTicketAdapter(this, tickets, true);
+        ConditionTicketAdapter adapter = new ConditionTicketAdapter(this, tickets, true);
         suggestView.setAdapter(adapter);
         LinearLayoutManager llm = new LinearLayoutManager(this);
         suggestView.setLayoutManager(llm);
@@ -96,16 +125,20 @@ public class ChangeTicketActivity extends BaseActivity {
 
     public void getSuggestList() {
 
-        TradeController.getInstance(this).getList("0", toTicket.getTicket_id(), fromTicket.getTicket_id(), new Callback<TradeListResponseForm>() {
+        TradeController.getInstance(this).near(toTicket.get_id(), fromTicket.getTicket_id(), mQuantity, new Callback<TradeInfoResponseForm>() {
             @Override
-            public void onResponse(Call<TradeListResponseForm> call, Response<TradeListResponseForm> response) {
+            public void onResponse(Call<TradeInfoResponseForm> call, Response<TradeInfoResponseForm> response) {
                 if (response.body().getCode() == 200) {
-                    initSuggestLayout(response.body().getResult());
+                    List<Trade> trades = new ArrayList<>();
+                    if (response.body().getResult() != null)
+                        trades.add(response.body().getResult());
+
+                    initSuggestLayout(trades);
                 }
             }
 
             @Override
-            public void onFailure(Call<TradeListResponseForm> call, Throwable t) {
+            public void onFailure(Call<TradeInfoResponseForm> call, Throwable t) {
 
             }
         });
@@ -188,7 +221,8 @@ public class ChangeTicketActivity extends BaseActivity {
                 quantities.add(new Quantity(i));
         }
 
-
+        if(mQuantityPosition == -1)
+            mQuantityPosition = quantities.size()-1;
         ArrayAdapter adapter = new ArrayAdapter(this, R.layout.element_spinner, quantities);
         quantityView.setAdapter(adapter);
         quantityView.setSelection(mQuantityPosition);
@@ -231,6 +265,10 @@ public class ChangeTicketActivity extends BaseActivity {
         if (resultCode != RESULT_OK) return;
         if (requestCode == CodeDefinition.FIND_REQUEST_CODE) {
             String _id = data.getStringExtra(CodeDefinition.ID_PARAM);
+            if (fromTicket.getTicket_id().equals(_id)) {
+                Toast.makeText(this, "같은 아이템은 선택할수 없습니다.", Toast.LENGTH_SHORT).show();
+                return;
+            }
             getTicket(_id);
         }
     }

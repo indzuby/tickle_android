@@ -6,6 +6,7 @@ import co.tickle.network.RestApi;
 import co.tickle.network.form.ProposeResponseForm;
 import co.tickle.network.form.ResponseForm;
 import co.tickle.network.form.TicketListResponseForm;
+import co.tickle.network.form.TradeInfoResponseForm;
 import co.tickle.network.form.TradeListResponseForm;
 import co.tickle.network.service.TradeService;
 import co.tickle.network.service.UserService;
@@ -56,6 +57,11 @@ public class TradeController extends BaseController {
     public void cancel(String tradeId,Callback<ResponseForm> callback) {
         String token = SessionUtils.getString(context, CodeDefinition.TOKEN, RestApi.TESTER1);
         Call<ResponseForm> call = tradeService.cancel(token,tradeId);
+        call.enqueue(callback);
+    }
+    public void near(String fromTicket, String toTicket, int quantity, Callback<TradeInfoResponseForm> callback){
+        String token = SessionUtils.getString(context, CodeDefinition.TOKEN, RestApi.TESTER1);
+        Call<TradeInfoResponseForm> call = tradeService.near(token,fromTicket,toTicket,quantity);
         call.enqueue(callback);
     }
 }

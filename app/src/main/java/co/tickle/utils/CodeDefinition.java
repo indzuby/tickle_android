@@ -23,4 +23,8 @@ public class CodeDefinition {
     public final static String MODE_CATEGORY = "category";
     public final static String MODE_TODAY = "today";
     public final static String MODE_COMINGSOON = "commingsoon";
+
+
+    public final static String FAVORITE_TICKLE_BROADCAST ="FAVORITE_TICKLE_BROADCAST";
+    public final static String CONDITION_TICKLE_BROADCAST ="CONDITION_TICKLE_BROADCAST";
 }

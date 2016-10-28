@@ -9,7 +9,7 @@ import android.view.ViewGroup;
 import co.tickle.R;
 import co.tickle.model.Ticket;
 import co.tickle.view.common.BaseRecyclerAdapter;
-import co.tickle.view.popup.CouponPopup;
+import co.tickle.view.popup.TickleUsePopup;
 
 /**
  * Created by zuby on 2016. 7. 7..
@@ -57,6 +57,6 @@ public class FavoriteTicketAdapter extends BaseRecyclerAdapter {
 
     @Override
     public void onClick(View v) {
-        new CouponPopup(mContext, (Ticket)v.getTag() ).show();
+        new TickleUsePopup(mContext, (Ticket)v.getTag() ).show();
     }
 }

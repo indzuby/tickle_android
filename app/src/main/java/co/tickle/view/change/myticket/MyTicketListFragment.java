@@ -1,8 +1,14 @@
 package co.tickle.view.change.myticket;
 
+import android.content.BroadcastReceiver;
+import android.content.Context;
+import android.content.Intent;
+import android.content.IntentFilter;
 import android.os.Bundle;
+import android.support.v4.content.LocalBroadcastManager;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -32,9 +38,23 @@ public class MyTicketListFragment extends BaseFragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         mView =  inflater.inflate(R.layout.fragment_myticket,container,false);
+        getActivity().registerReceiver(initDataBroadCastReceiver,new IntentFilter(CodeDefinition.FAVORITE_TICKLE_BROADCAST));
         initData();
         return mView;
     }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+//        getActivity().registerReceiver(initDataBroadCastReceiver,new IntentFilter(CodeDefinition.FAVORITE_TICKLE_BROADCAST));
+    }
+
+    @Override
+    public void onDestroyView() {
+        super.onDestroyView();
+        getActivity().unregisterReceiver(initDataBroadCastReceiver);
+    }
+
     public void initData(){
         String category = getArguments().getString(CodeDefinition.CATEGORY_PARAM);
         TicketController.getInstance(getContext()).getMyList(category,false,new Callback<TicketListResponseForm>() {
@@ -86,4 +106,12 @@ public class MyTicketListFragment extends BaseFragment {
         adapter = new MyCollectTicketAdapter(getActivity(),mTickets,mFavoriteTickets);
         gridView.setAdapter(adapter);
     }
+    private final BroadcastReceiver initDataBroadCastReceiver = new BroadcastReceiver() {
+        @Override
+        public void onReceive(Context context, Intent intent) {
+            Log.e("BROADCAST","ACTION");
+            if(intent.getAction().equals(CodeDefinition.FAVORITE_TICKLE_BROADCAST))
+                initData();
+        }
+    };
 }

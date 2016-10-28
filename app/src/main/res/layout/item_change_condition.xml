@@ -3,15 +3,16 @@
     android:layout_width="match_parent"
     android:layout_height="77dp"
     android:orientation="vertical">
+
     <View
         android:layout_width="match_parent"
         android:layout_height="6dp"
         android:background="@color/lightGrayBackground" />
 
     <LinearLayout
-        android:background="@drawable/change_border"
         android:layout_width="match_parent"
         android:layout_height="71dp"
+        android:background="@drawable/change_border"
         android:orientation="horizontal">
 
         <LinearLayout
@@ -43,11 +44,11 @@
                     android:textSize="11sp" />
 
                 <TextView
-                    android:singleLine="true"
                     android:id="@+id/fromNameView"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="2dp"
+                    android:singleLine="true"
                     android:text="갈릭스테이크버거"
                     android:textColor="@color/black33"
                     android:textSize="12sp"
@@ -75,28 +76,43 @@
                 android:layout_gravity="center"
                 android:background="@drawable/vertical_dash_line" />
 
-            <ImageView
-                android:id="@+id/iconCondition"
+            <RelativeLayout
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:src="@mipmap/icon_changing" />
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:layout_centerInParent="true"
+                    android:id="@+id/iconCondition"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@mipmap/icon_changing" />
+                <TextView
+                    android:id="@+id/dateTimeView"
+                    android:layout_marginTop="4dp"
+                    android:textSize="9sp"
+                    android:textColor="@color/gray99"
+                    android:layout_below="@+id/iconCondition"
+                    android:layout_width="wrap_content"
+                    android:text="10.16"
+                    android:layout_height="wrap_content" />
+            </RelativeLayout>
         </FrameLayout>
 
         <RelativeLayout
             android:layout_width="0dp"
-            android:orientation="horizontal"
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:gravity="center_vertical|right"
+            android:orientation="horizontal"
             android:paddingRight="9dp">
 
             <LinearLayout
-                android:layout_toLeftOf="@+id/toThumbnailView"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="4dp"
                 android:layout_marginRight="9dp"
+                android:layout_toLeftOf="@+id/toThumbnailView"
                 android:gravity="right"
                 android:orientation="vertical">
 
@@ -109,11 +125,11 @@
                     android:textSize="11sp" />
 
                 <TextView
-                    android:singleLine="true"
                     android:id="@+id/toNameView"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="2dp"
+                    android:singleLine="true"
                     android:text="갈릭스테이크버거"
                     android:textColor="@color/black33"
                     android:textSize="12sp"
@@ -131,19 +147,20 @@
             </LinearLayout>
 
             <ImageView
-                android:layout_alignParentRight="true"
                 android:id="@+id/toThumbnailView"
                 android:layout_width="48dp"
                 android:layout_height="48dp"
+                android:layout_alignParentRight="true"
                 android:src="@mipmap/thumbnail" />
         </RelativeLayout>
+
         <ImageView
-            android:visibility="gone"
             android:id="@+id/removeButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
             android:padding="8dp"
-            android:layout_width="wrap_content"
             android:src="@mipmap/icon_remove"
-            android:layout_height="wrap_content" />
+            android:visibility="gone" />
     </LinearLayout>
 </LinearLayout>

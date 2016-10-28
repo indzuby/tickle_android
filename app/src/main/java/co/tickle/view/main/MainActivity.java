@@ -165,4 +165,21 @@ public class MainActivity extends BaseActivity {
             window.setStatusBarColor(ContextCompat.getColor(this, res[position]));
         }
     }
+
+    public interface onKeyBackPressedListener {
+        public void onBack();
+    }
+    private onKeyBackPressedListener mOnKeyBackPressedListener;
+
+    public void setOnKeyBackPressedListener(onKeyBackPressedListener listener) {
+        mOnKeyBackPressedListener = listener;
+    }
+    @Override
+    public void onBackPressed() {
+        if (mOnKeyBackPressedListener != null) {
+            mOnKeyBackPressedListener.onBack();
+        } else {
+            super.onBackPressed();
+        }
+    }
 }

@@ -21,6 +21,7 @@ import co.tickle.utils.SessionUtils;
 import co.tickle.view.adapter.TickleAdapter;
 import co.tickle.view.common.BaseFragment;
 import co.tickle.view.popup.AccountPopup;
+import co.tickle.view.popup.TickleInfoPopup;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -94,6 +95,9 @@ public class CategoryListFragment extends BaseFragment {
                 Ticket ticket = (Ticket) v.getTag();
                 downloadTickle(ticket);
             }
+        }else if(v.getId() == R.id.tickleInfoLayout) {
+            Ticket ticket = (Ticket) v.getTag();
+            new TickleInfoPopup(getContext(),ticket).show();
         }
     }
 }

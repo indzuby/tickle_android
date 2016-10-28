@@ -16,6 +16,7 @@
         android:orientation="horizontal">
 
         <LinearLayout
+            android:id="@+id/tickleInfoLayout"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_toLeftOf="@+id/rightLayout">

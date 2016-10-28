@@ -83,6 +83,8 @@ public class ComingSoonAdapter extends BaseRecyclerAdapter {
             h.itemView.findViewById(R.id.tickleSelectLayout).setTag(ticket);
             h.itemView.findViewById(R.id.tickleSelectLayout).setOnClickListener(listener);
         }
+        h.itemView.findViewById(R.id.tickleInfoLayout).setTag(ticket);
+        h.itemView.findViewById(R.id.tickleInfoLayout).setOnClickListener(listener);
     }
     public void restTime(int position){
 

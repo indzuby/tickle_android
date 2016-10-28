@@ -19,7 +19,7 @@ import co.tickle.model.Ticket;
 import co.tickle.utils.CodeDefinition;
 import co.tickle.utils.Utils;
 import co.tickle.view.common.BaseRecyclerAdapter;
-import co.tickle.view.popup.CouponPopup;
+import co.tickle.view.popup.TickleUsePopup;
 
 /**
  * Created by zuby on 2016. 7. 7..
@@ -67,9 +67,9 @@ public class MyCollectTicketAdapter extends BaseRecyclerAdapter {
             h.changeView.setVisibility(View.GONE);
             h.usedView.setVisibility(View.GONE);
             if (ticket.getStatus() == 1)
-                h.newView.setVisibility(View.VISIBLE);
-            else if (ticket.getStatus() == 2)
                 h.changeView.setVisibility(View.VISIBLE);
+            else if (ticket.getStatus() == 2)
+                h.newView.setVisibility(View.VISIBLE);
             else if (ticket.getStatus() == 3)
                 h.usedView.setVisibility(View.VISIBLE);
 
@@ -103,9 +103,9 @@ public class MyCollectTicketAdapter extends BaseRecyclerAdapter {
             changeView.setVisibility(View.GONE);
             usedView.setVisibility(View.GONE);
             if (ticket.getStatus() == 1)
-                newView.setVisibility(View.VISIBLE);
-            else if (ticket.getStatus() == 2)
                 changeView.setVisibility(View.VISIBLE);
+            else if (ticket.getStatus() == 2)
+                newView.setVisibility(View.VISIBLE);
             else if (ticket.getStatus() == 3)
                 usedView.setVisibility(View.VISIBLE);
 
@@ -169,6 +169,6 @@ public class MyCollectTicketAdapter extends BaseRecyclerAdapter {
                 makeFavoriteTicket();
             }
         } else
-            new CouponPopup(mContext, (Ticket) v.getTag()).show();
+            new TickleUsePopup(mContext, (Ticket) v.getTag()).show();
     }
 }

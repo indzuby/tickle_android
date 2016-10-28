@@ -13,6 +13,12 @@ import com.google.zxing.MultiFormatWriter;
 import com.google.zxing.WriterException;
 import com.google.zxing.common.BitMatrix;
 
+import org.joda.time.DateTime;
+import org.joda.time.Days;
+import org.joda.time.Hours;
+import org.joda.time.Minutes;
+
+import java.util.Date;
 import java.util.EnumMap;
 import java.util.Map;
 import java.util.regex.Pattern;
@@ -142,6 +148,22 @@ public class Utils {
         if(time>3600)
             t = String.format("%02d:%s",time/3600,t);
         return t;
+    }
+    public static String dateTimeToString(Date date) {
+        DateTime dateTime = new DateTime(date);
+        DateTime nowTime = DateTime.now();
+
+        int days = Days.daysBetween(dateTime,nowTime).getDays();
+        int hour = Hours.hoursBetween(dateTime,nowTime).getHours();
+        if(days>=4)
+            return dateTime.toString("MM.dd");
+        else if(days>0)
+            return days+"일 전";
+        else if(hour>1)
+            return hour+"시간 전";
+        else
+            return Minutes.minutesBetween(dateTime,nowTime).getMinutes()+"분 전";
+
     }
 }
 

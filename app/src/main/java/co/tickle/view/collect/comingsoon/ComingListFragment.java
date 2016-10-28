@@ -24,6 +24,7 @@ import co.tickle.view.adapter.ComingSoonAdapter;
 import co.tickle.view.common.BaseFragment;
 import co.tickle.view.popup.AccountPopup;
 import co.tickle.view.popup.AdvertisePopup;
+import co.tickle.view.popup.TickleInfoPopup;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -123,8 +124,11 @@ public class ComingListFragment extends BaseFragment {
                 Ticket ticket = (Ticket) v.getTag();
                 downloadTickle(ticket);
             }
+        }else{
+            Ticket ticket = (Ticket) v.getTag();
+            new TickleInfoPopup(getContext(),ticket).show();
         }
-        else new AdvertisePopup(getActivity()).show();
+//        else new AdvertisePopup(getActivity()).show();
     }
 
     @Override
