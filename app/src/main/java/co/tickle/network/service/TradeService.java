@@ -4,6 +4,7 @@ import co.tickle.network.form.ProposeResponseForm;
 import co.tickle.network.form.ResponseForm;
 import co.tickle.network.form.TicketInfoResponseForm;
 import co.tickle.network.form.TicketListResponseForm;
+import co.tickle.network.form.TradeApplyResponseForm;
 import co.tickle.network.form.TradeInfoResponseForm;
 import co.tickle.network.form.TradeListResponseForm;
 import retrofit2.Call;
@@ -32,19 +33,19 @@ public interface TradeService {
     Call<ProposeResponseForm> propose(@Header("token") String token,
                                       @Field("from_ticket") String fromTicket,
                                       @Field("to_ticket") String toTicket,
-                                      @Field("quantity") Integer quantity);
+                                      @Field("from_quantity") Integer fromQuantity,
+                                      @Field("to_quantity") Integer toQuantity);
 
     @FormUrlEncoded
-    @POST("/trade/deal")
-    Call<ResponseForm> deal(@Header("token") String token, @Field("trade_id") String tradeId);
+    @POST("/trade/apply")
+    Call<TradeApplyResponseForm> apply(@Header("token") String token, @Field("trade_id") String tradeId);
 
     @FormUrlEncoded
     @POST("/trade/cancel")
     Call<ResponseForm> cancel(@Header("token") String token, @Field("trade_id") String tradeId);
 
-    @GET("/trade/find/near")
-    Call<TradeInfoResponseForm> near(@Header("token") String token, @Query("from_ticket") String fromTicket,
-                                     @Query("to_ticket") String toTicket, @Query("quantity") Integer quantity);
+    @GET("/trade/log")
+    Call<TradeListResponseForm> log(@Header("token") String token, @Query("status") String status);
 
 
 }

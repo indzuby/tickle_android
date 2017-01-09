@@ -6,6 +6,7 @@ import co.tickle.network.RestApi;
 import co.tickle.network.form.ProposeResponseForm;
 import co.tickle.network.form.ResponseForm;
 import co.tickle.network.form.TicketListResponseForm;
+import co.tickle.network.form.TradeApplyResponseForm;
 import co.tickle.network.form.TradeInfoResponseForm;
 import co.tickle.network.form.TradeListResponseForm;
 import co.tickle.network.service.TradeService;
@@ -40,9 +41,9 @@ public class TradeController extends BaseController {
             tradeService = retrofit.create(TradeService.class);
     }
 
-    public void propose(String fromTicket, String toTicket, int quantity, Callback<ProposeResponseForm> callback){
+    public void propose(String fromTicket, String toTicket,int fromQuantity, int toQuantity, Callback<ProposeResponseForm> callback){
         String token = SessionUtils.getString(context, CodeDefinition.TOKEN, RestApi.TESTER1);
-        Call<ProposeResponseForm> call = tradeService.propose(token,fromTicket,toTicket,quantity);
+        Call<ProposeResponseForm> call = tradeService.propose(token,fromTicket,toTicket,fromQuantity,toQuantity);
         call.enqueue(callback);
     }
     public void getMyList(String status,Callback<TradeListResponseForm> callback){
@@ -59,9 +60,15 @@ public class TradeController extends BaseController {
         Call<ResponseForm> call = tradeService.cancel(token,tradeId);
         call.enqueue(callback);
     }
-    public void near(String fromTicket, String toTicket, int quantity, Callback<TradeInfoResponseForm> callback){
+    public void apply(String tradeId, Callback<TradeApplyResponseForm> callback) {
         String token = SessionUtils.getString(context, CodeDefinition.TOKEN, RestApi.TESTER1);
-        Call<TradeInfoResponseForm> call = tradeService.near(token,fromTicket,toTicket,quantity);
+        Call<TradeApplyResponseForm> call = tradeService.apply(token,tradeId);
         call.enqueue(callback);
+    }
+    public void log(String status , Callback<TradeListResponseForm> callback) {
+        String token = SessionUtils.getString(context, CodeDefinition.TOKEN, RestApi.TESTER1);
+        Call<TradeListResponseForm> call = tradeService.log(token,status);
+        call.enqueue(callback);
+
     }
 }

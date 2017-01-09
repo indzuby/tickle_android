@@ -45,6 +45,7 @@ public class ConditionTicketAdapter extends BaseRecyclerAdapter {
 
     List<Trade> mTrades;
 
+
     public ConditionTicketAdapter(Context mContext, List<Trade> mTrades, boolean isChanging) {
         this.mContext = mContext;
         this.mTrades = mTrades;
@@ -85,7 +86,7 @@ public class ConditionTicketAdapter extends BaseRecyclerAdapter {
         if (isChanging)
             h.fromQuantityView.setText(Utils.getPriceToString(trade.getQuantity() * CodeDefinition.TICKLE_PRICE));
         else
-            h.fromQuantityView.setText(Utils.getPriceToString(trade.getOrgQuantity() * CodeDefinition.TICKLE_PRICE));
+            h.fromQuantityView.setText(Utils.getPriceToString(trade.getFromQuantity() * CodeDefinition.TICKLE_PRICE));
 
         // to
 
@@ -93,9 +94,9 @@ public class ConditionTicketAdapter extends BaseRecyclerAdapter {
         h.toCompanyNameView.setText(toTicket.getCompany());
         h.toNameView.setText(toTicket.getName());
         if (isChanging)
-            h.toQuantityView.setText(Utils.getPriceToString(trade.getQuantity() * CodeDefinition.TICKLE_PRICE));
+            h.toQuantityView.setText(Utils.getPriceToString((int) Math.ceil((double)trade.getQuantity()/trade.getRate()) * CodeDefinition.TICKLE_PRICE));
         else
-            h.toQuantityView.setText(Utils.getPriceToString(trade.getOrgQuantity() * CodeDefinition.TICKLE_PRICE));
+            h.toQuantityView.setText(Utils.getPriceToString(trade.getToQuantity() * CodeDefinition.TICKLE_PRICE));
         h.removeButton.setTag(position);
         h.removeButton.setOnClickListener(this);
         h.dateTimeView.setText(Utils.dateTimeToString(trade.getDateTime()));

@@ -29,4 +29,15 @@ public class Trade extends BaseModel {
     @SerializedName("datetime")
     Date dateTime;
 
+
+    @SerializedName("from_quantity")
+    Integer fromQuantity;
+
+    @SerializedName("to_quantity")
+    Integer toQuantity;
+
+    Double rate;
+
+
+
 }

@@ -99,12 +99,14 @@
         </LinearLayout>
     </LinearLayout>
     <View
+        android:visibility="gone"
         android:layout_toLeftOf="@+id/priceLayout"
         android:layout_width="1dp"
         android:layout_height="match_parent"
         android:background="@drawable/vertical_dash_line" />
 
     <LinearLayout
+        android:visibility="gone"
         android:id="@+id/priceLayout"
         android:layout_alignParentRight="true"
         android:layout_width="75dp"

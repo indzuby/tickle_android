@@ -10,6 +10,7 @@
         android:background="@color/lightGrayBackground" />
 
     <LinearLayout
+        android:id="@+id/tradeLayout"
         android:layout_width="match_parent"
         android:layout_height="71dp"
         android:background="@drawable/change_border"

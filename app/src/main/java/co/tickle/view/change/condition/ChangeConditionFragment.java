@@ -56,7 +56,7 @@ public class ChangeConditionFragment extends BaseFragment implements MainActivit
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         mView = inflater.inflate(R.layout.fragment_change_condition,container,false);
-        getActivity().registerReceiver(initDataBroadCastReceiver,new IntentFilter(CodeDefinition.FAVORITE_TICKLE_BROADCAST));
+        getActivity().registerReceiver(initDataBroadCastReceiver,new IntentFilter(CodeDefinition.CONDITION_TICKLE_BROADCAST));
         init();
         return mView;
     }
@@ -68,22 +68,40 @@ public class ChangeConditionFragment extends BaseFragment implements MainActivit
 
     public void initData(final boolean isChanging){
         String status = "0";
-        if(!isChanging) status = "1";
-        TradeController.getInstance(getContext()).getMyList(status,new Callback<TradeListResponseForm>() {
-            @Override
-            public void onResponse(Call<TradeListResponseForm> call, Response<TradeListResponseForm> response) {
-                if(response.body().getCode() == 200){
-                    mTrades = response.body().getResult();
-                    adapter = new ConditionTicketAdapter(getContext(),mTrades,isChanging);
-                    listView.setAdapter(adapter);
+        if(isChanging) {
+            TradeController.getInstance(getContext()).getMyList(status, new Callback<TradeListResponseForm>() {
+                @Override
+                public void onResponse(Call<TradeListResponseForm> call, Response<TradeListResponseForm> response) {
+                    if (response.body().getCode() == 200) {
+                        mTrades = response.body().getResult();
+                        adapter = new ConditionTicketAdapter(getContext(), mTrades, isChanging);
+                        listView.setAdapter(adapter);
+                    }
                 }
-            }
 
-            @Override
-            public void onFailure(Call<TradeListResponseForm> call, Throwable t) {
-                t.printStackTrace();
-            }
-        });
+                @Override
+                public void onFailure(Call<TradeListResponseForm> call, Throwable t) {
+                    t.printStackTrace();
+                }
+            });
+        }else {
+            TradeController.getInstance(getContext()).log(status, new Callback<TradeListResponseForm>() {
+                @Override
+                public void onResponse(Call<TradeListResponseForm> call, Response<TradeListResponseForm> response) {
+                    if (response.body().getCode() == 200) {
+                        mTrades = response.body().getResult();
+                        adapter = new ConditionTicketAdapter(getContext(), mTrades, isChanging);
+                        listView.setAdapter(adapter);
+                    }
+                }
+
+                @Override
+                public void onFailure(Call<TradeListResponseForm> call, Throwable t) {
+                    t.printStackTrace();
+                }
+            });
+
+        }
     }
     public void init(){
         isChanging = true;
